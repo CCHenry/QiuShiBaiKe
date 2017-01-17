@@ -10,181 +10,223 @@ import java.util.List;
  * @website http://www.atool.org/json2javabean.php
  */
 public class Items {
+    private String high_url;
 
-    private String highUrl;
     private String format;
+
     private String image;
-    private String highLoc;
-    private int publishedAt;
+
+    private String high_loc;
+
+    private int published_at;
+
     private String tag;
+
     private User user;
-    private ImageSize imageSize;
+
+    private Image_size image_size;
+
     private int id;
-    private String lowLoc;
+
+    private String low_loc;
+
     private Votes votes;
-    private String picLoc;
-    private int createdAt;
-    private List<Integer> picSize;
-    private String picUrl;
+
+    private String pic_loc;
+
+    private int created_at;
+
+    private List<Integer> pic_size ;
+
+    private String pic_url;
+
     private String content;
+
     private String state;
-    private int commentsCount;
-    private String lowUrl;
-    private boolean allowComment;
-    private int shareCount;
+
+    private int comments_count;
+
+    private String low_url;
+
+    private boolean allow_comment;
+
+    private int share_count;
+
     private int loop;
-    public void setHighUrl(String highUrl) {
-         this.highUrl = highUrl;
-     }
-     public String getHighUrl() {
-         return highUrl;
-     }
+
+    public String getHigh_url() {
+        return high_url;
+    }
+
+    public void setHigh_url(String high_url) {
+        this.high_url = high_url;
+    }
+
+    public String getFormat() {
+        return format;
+    }
 
     public void setFormat(String format) {
-         this.format = format;
-     }
-     public String getFormat() {
-         return format;
-     }
+        this.format = format;
+    }
+
+    public String getImage() {
+        return image;
+    }
 
     public void setImage(String image) {
-         this.image = image;
-     }
-     public String getImage() {
-         return image;
-     }
+        this.image = image;
+    }
 
-    public void setHighLoc(String highLoc) {
-         this.highLoc = highLoc;
-     }
-     public String getHighLoc() {
-         return highLoc;
-     }
+    public String getHigh_loc() {
+        return high_loc;
+    }
 
-    public void setPublishedAt(int publishedAt) {
-         this.publishedAt = publishedAt;
-     }
-     public int getPublishedAt() {
-         return publishedAt;
-     }
+    public void setHigh_loc(String high_loc) {
+        this.high_loc = high_loc;
+    }
+
+    public int getPublished_at() {
+        return published_at;
+    }
+
+    public void setPublished_at(int published_at) {
+        this.published_at = published_at;
+    }
+
+    public String getTag() {
+        return tag;
+    }
 
     public void setTag(String tag) {
-         this.tag = tag;
-     }
-     public String getTag() {
-         return tag;
-     }
+        this.tag = tag;
+    }
+
+    public User getUser() {
+        return user;
+    }
 
     public void setUser(User user) {
-         this.user = user;
-     }
-     public User getUser() {
-         return user;
-     }
+        this.user = user;
+    }
 
-    public void setImageSize(ImageSize imageSize) {
-         this.imageSize = imageSize;
-     }
-     public ImageSize getImageSize() {
-         return imageSize;
-     }
+    public Image_size getImage_size() {
+        return image_size;
+    }
+
+    public void setImage_size(Image_size image_size) {
+        this.image_size = image_size;
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public void setId(int id) {
-         this.id = id;
-     }
-     public int getId() {
-         return id;
-     }
+        this.id = id;
+    }
 
-    public void setLowLoc(String lowLoc) {
-         this.lowLoc = lowLoc;
-     }
-     public String getLowLoc() {
-         return lowLoc;
-     }
+    public String getLow_loc() {
+        return low_loc;
+    }
+
+    public void setLow_loc(String low_loc) {
+        this.low_loc = low_loc;
+    }
+
+    public Votes getVotes() {
+        return votes;
+    }
 
     public void setVotes(Votes votes) {
-         this.votes = votes;
-     }
-     public Votes getVotes() {
-         return votes;
-     }
+        this.votes = votes;
+    }
 
-    public void setPicLoc(String picLoc) {
-         this.picLoc = picLoc;
-     }
-     public String getPicLoc() {
-         return picLoc;
-     }
+    public String getPic_loc() {
+        return pic_loc;
+    }
 
-    public void setCreatedAt(int createdAt) {
-         this.createdAt = createdAt;
-     }
-     public int getCreatedAt() {
-         return createdAt;
-     }
+    public void setPic_loc(String pic_loc) {
+        this.pic_loc = pic_loc;
+    }
 
-    public void setPicSize(List<Integer> picSize) {
-         this.picSize = picSize;
-     }
-     public List<Integer> getPicSize() {
-         return picSize;
-     }
+    public int getCreated_at() {
+        return created_at;
+    }
 
-    public void setPicUrl(String picUrl) {
-         this.picUrl = picUrl;
-     }
-     public String getPicUrl() {
-         return picUrl;
-     }
+    public void setCreated_at(int created_at) {
+        this.created_at = created_at;
+    }
+
+    public List<Integer> getPic_size() {
+        return pic_size;
+    }
+
+    public void setPic_size(List<Integer> pic_size) {
+        this.pic_size = pic_size;
+    }
+
+    public String getPic_url() {
+        return pic_url;
+    }
+
+    public void setPic_url(String pic_url) {
+        this.pic_url = pic_url;
+    }
+
+    public String getContent() {
+        return content;
+    }
 
     public void setContent(String content) {
-         this.content = content;
-     }
-     public String getContent() {
-         return content;
-     }
+        this.content = content;
+    }
+
+    public String getState() {
+        return state;
+    }
 
     public void setState(String state) {
-         this.state = state;
-     }
-     public String getState() {
-         return state;
-     }
+        this.state = state;
+    }
 
-    public void setCommentsCount(int commentsCount) {
-         this.commentsCount = commentsCount;
-     }
-     public int getCommentsCount() {
-         return commentsCount;
-     }
+    public int getComments_count() {
+        return comments_count;
+    }
 
-    public void setLowUrl(String lowUrl) {
-         this.lowUrl = lowUrl;
-     }
-     public String getLowUrl() {
-         return lowUrl;
-     }
+    public void setComments_count(int comments_count) {
+        this.comments_count = comments_count;
+    }
 
-    public void setAllowComment(boolean allowComment) {
-         this.allowComment = allowComment;
-     }
-     public boolean getAllowComment() {
-         return allowComment;
-     }
+    public String getLow_url() {
+        return low_url;
+    }
 
-    public void setShareCount(int shareCount) {
-         this.shareCount = shareCount;
-     }
-     public int getShareCount() {
-         return shareCount;
-     }
+    public void setLow_url(String low_url) {
+        this.low_url = low_url;
+    }
+
+    public boolean isAllow_comment() {
+        return allow_comment;
+    }
+
+    public void setAllow_comment(boolean allow_comment) {
+        this.allow_comment = allow_comment;
+    }
+
+    public int getShare_count() {
+        return share_count;
+    }
+
+    public void setShare_count(int share_count) {
+        this.share_count = share_count;
+    }
+
+    public int getLoop() {
+        return loop;
+    }
 
     public void setLoop(int loop) {
-         this.loop = loop;
-     }
-     public int getLoop() {
-         return loop;
-     }
-
+        this.loop = loop;
+    }
 }

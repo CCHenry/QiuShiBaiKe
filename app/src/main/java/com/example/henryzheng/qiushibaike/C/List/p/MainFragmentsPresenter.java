@@ -3,7 +3,6 @@ package com.example.henryzheng.qiushibaike.C.List.p;
 import android.media.Image;
 
 import com.example.henryzheng.qiushibaike.C.List.i.MainFragmentInterface;
-import com.example.henryzheng.qiushibaike.M.Bean.ZhuanXiang.RootListBean;
 import com.example.henryzheng.qiushibaike.M.Bean.video.VideoRootBean;
 import com.example.henryzheng.qiushibaike.M.utils.ApiManage;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
@@ -49,8 +48,7 @@ public class MainFragmentsPresenter {
     public void loadListData(final int load_data_type) {
         handlerPage(load_data_type);
         handlerUrl(type);
-//        Subscription subscription =
-                ApiManage.getInstence().getVedioApiService().getLastDaily(1,
+                ApiManage.getInstence().getVedioApiService().getLastDaily(page,
                 30, 0)
                 .map(new Func1<VideoRootBean, VideoRootBean>() {
                     @Override
@@ -61,7 +59,6 @@ public class MainFragmentsPresenter {
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-
                 .subscribe(new Observer<VideoRootBean>() {
                     @Override
                     public void onCompleted() {
@@ -69,13 +66,12 @@ public class MainFragmentsPresenter {
 
                     @Override
                     public void onError(Throwable e) {
-
+                        CCLog.print(e.getCause().toString());
                     }
 
                     @Override
                     public void onNext(VideoRootBean rootListBean) {
                         handlerAndShowData(load_data_type,rootListBean);
-
                     }
                 });
     }

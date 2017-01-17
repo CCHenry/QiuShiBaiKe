@@ -10,100 +10,102 @@ package com.example.henryzheng.qiushibaike.M.Bean.video;
  */
 public class User {
 
-    private int avatarUpdatedAt;
+    private int avatar_updated_at;
+
     private String medium;
+
     private String thumb;
-    private int lastVisitedAt;
-    private int createdAt;
-    private int updatedAt;
+
+    private int last_visited_at;
+
+    private int created_at;
+
+    private int updated_at;
+
     private String state;
+
     private String role;
+
     private String login;
-    private String lastDevice;
+
+    private String last_device;
+
     private int id;
+
     private String icon;
-    public void setAvatarUpdatedAt(int avatarUpdatedAt) {
-         this.avatarUpdatedAt = avatarUpdatedAt;
-     }
-     public int getAvatarUpdatedAt() {
-         return avatarUpdatedAt;
-     }
 
-    public void setMedium(String medium) {
-         this.medium = medium;
-     }
-     public String getMedium() {
-         return medium;
-     }
+    public void setAvatar_updated_at(int avatar_updated_at){
+        this.avatar_updated_at = avatar_updated_at;
+    }
+    public int getAvatar_updated_at(){
+        return this.avatar_updated_at;
+    }
+    public void setMedium(String medium){
+        this.medium = medium;
+    }
+    public String getMedium(){
+        return this.medium;
+    }
+    public void setThumb(String thumb){
+        this.thumb = thumb;
+    }
+    public String getThumb(){
+        return this.thumb;
+    }
+    public void setLast_visited_at(int last_visited_at){
+        this.last_visited_at = last_visited_at;
+    }
+    public int getLast_visited_at(){
+        return this.last_visited_at;
+    }
+    public void setCreated_at(int created_at){
+        this.created_at = created_at;
+    }
+    public int getCreated_at(){
+        return this.created_at;
+    }
+    public void setUpdated_at(int updated_at){
+        this.updated_at = updated_at;
+    }
+    public int getUpdated_at(){
+        return this.updated_at;
+    }
+    public void setState(String state){
+        this.state = state;
+    }
+    public String getState(){
+        return this.state;
+    }
+    public void setRole(String role){
+        this.role = role;
+    }
+    public String getRole(){
+        return this.role;
+    }
+    public void setLogin(String login){
+        this.login = login;
+    }
+    public String getLogin(){
+        return this.login;
+    }
+    public void setLast_device(String last_device){
+        this.last_device = last_device;
+    }
+    public String getLast_device(){
+        return this.last_device;
+    }
+    public void setId(int id){
+        this.id = id;
+    }
+    public int getId(){
+        return this.id;
+    }
+    public void setIcon(String icon){
+        this.icon = icon;
+    }
+    public String getIcon(){
+        return this.icon;
+    }
 
-    public void setThumb(String thumb) {
-         this.thumb = thumb;
-     }
-     public String getThumb() {
-         return thumb;
-     }
-
-    public void setLastVisitedAt(int lastVisitedAt) {
-         this.lastVisitedAt = lastVisitedAt;
-     }
-     public int getLastVisitedAt() {
-         return lastVisitedAt;
-     }
-
-    public void setCreatedAt(int createdAt) {
-         this.createdAt = createdAt;
-     }
-     public int getCreatedAt() {
-         return createdAt;
-     }
-
-    public void setUpdatedAt(int updatedAt) {
-         this.updatedAt = updatedAt;
-     }
-     public int getUpdatedAt() {
-         return updatedAt;
-     }
-
-    public void setState(String state) {
-         this.state = state;
-     }
-     public String getState() {
-         return state;
-     }
-
-    public void setRole(String role) {
-         this.role = role;
-     }
-     public String getRole() {
-         return role;
-     }
-
-    public void setLogin(String login) {
-         this.login = login;
-     }
-     public String getLogin() {
-         return login;
-     }
-
-    public void setLastDevice(String lastDevice) {
-         this.lastDevice = lastDevice;
-     }
-     public String getLastDevice() {
-         return lastDevice;
-     }
-
-    public void setId(int id) {
-         this.id = id;
-     }
-     public int getId() {
-         return id;
-     }
-
-    public void setIcon(String icon) {
-         this.icon = icon;
-     }
-     public String getIcon() {
-         return icon;
-     }
 
 }

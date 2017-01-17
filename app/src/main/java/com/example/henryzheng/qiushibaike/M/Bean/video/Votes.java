@@ -12,19 +12,21 @@ package com.example.henryzheng.qiushibaike.M.Bean.video;
 public class Votes {
 
     private int down;
-    private int up;
-    public void setDown(int down) {
-         this.down = down;
-     }
-     public int getDown() {
-         return down;
-     }
 
-    public void setUp(int up) {
-         this.up = up;
-     }
-     public int getUp() {
-         return up;
-     }
+    private int up;
+
+    public void setDown(int down){
+        this.down = down;
+    }
+    public int getDown(){
+        return this.down;
+    }
+    public void setUp(int up){
+        this.up = up;
+    }
+    public int getUp(){
+        return this.up;
+    }
+
 
 }

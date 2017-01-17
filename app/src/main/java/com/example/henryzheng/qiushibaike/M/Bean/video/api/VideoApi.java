@@ -9,7 +9,7 @@ import rx.Observable;
 /**
  * Created by henryzheng on 2017/1/12.
  */
-public interface VedioApi {
+public interface VideoApi {
     @GET("list/video")
     Observable<VideoRootBean> getLastDaily(@Query("page") int page, @Query("count") int count,
                                            @Query("rqcnt") int rqcnt) ;

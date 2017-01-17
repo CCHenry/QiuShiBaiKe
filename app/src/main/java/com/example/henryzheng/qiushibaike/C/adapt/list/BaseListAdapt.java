@@ -29,7 +29,7 @@ import butterknife.ButterKnife;
 /**
  * Created by henryzheng on 2017/1/12.
  */
-public class VideoListAdapt extends RecyclerView.Adapter<VideoListAdapt.MyViewHolder> {
+public abstract  class BaseListAdapt extends RecyclerView.Adapter<BaseListAdapt.MyViewHolder> {
     private static final int HEAD_TYPE = 0;
     private static final int DATA_TYPE = 1;
     private static final int FOOT_TYPE = 2;
@@ -39,7 +39,7 @@ public class VideoListAdapt extends RecyclerView.Adapter<VideoListAdapt.MyViewHo
     LayoutInflater _mLayoutInflater;
     private MyItemClickListener myItemClickListener;
 
-    public VideoListAdapt(Context context) {
+    public BaseListAdapt(Context context) {
         _context = context;
         _mLayoutInflater = LayoutInflater.from(context);
         datas = new ArrayList<>();
@@ -76,11 +76,13 @@ public class VideoListAdapt extends RecyclerView.Adapter<VideoListAdapt.MyViewHo
             MyViewHolder holder = new MyViewHolder(FOOT_TYPE, view, myItemClickListener);
             return holder;
         } else {
-            View view = _mLayoutInflater.inflate(R.layout.recycle_view_video_item, parent, false);
+            View view = _mLayoutInflater.inflate(getListItemLayout(), parent, false);
             MyViewHolder holder = new MyViewHolder(DATA_TYPE, view, myItemClickListener);
             return holder;
         }
     }
+    public abstract int getListItemLayout();
+
     /**
      * 数据服用Handler
      */

@@ -13,11 +13,17 @@ import java.util.List;
 public class VideoRootBean {
 
     private int count;
+
     private int err;
-    private List<Items> items;
+
+    private List<Items> items ;
+
     private int total;
+
     private int page;
+
     private int refresh;
+
     public void setCount(int count) {
          this.count = count;
      }

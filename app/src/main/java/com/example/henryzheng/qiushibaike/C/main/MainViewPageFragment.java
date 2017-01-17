@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.henryzheng.qiushibaike.C.Base.BaseFragment;
 import com.example.henryzheng.qiushibaike.C.List.BaseListFragment;
-import com.example.henryzheng.qiushibaike.M.NewsListModel.VedioListModel;
+import com.example.henryzheng.qiushibaike.M.listModel.VedioListModel;
 import com.example.henryzheng.qiushibaike.R;
 
 import java.util.ArrayList;

@@ -15,7 +15,6 @@
             android:id="@id/imageView0"
             android:layout_width="@dimen/size0"
             android:layout_height="@dimen/size0"
-            android:background="@mipmap/ic_launcher"
             android:layout_margin="@dimen/margin0"
            />
 
@@ -35,7 +34,7 @@
     android:id="@+id/textView1"/>
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="300dip"
+        android:layout_height="400dip"
         android:background="@mipmap/ic_launcher"
         android:id="@+id/imageView1"
         />

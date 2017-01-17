@@ -1,7 +1,7 @@
 package com.example.henryzheng.qiushibaike.M.utils;
 
 import com.example.henryzheng.qiushibaike.M.Bean.ZhuanXiang.api.ZhuanXiangApi;
-import com.example.henryzheng.qiushibaike.M.Bean.video.api.VedioApi;
+import com.example.henryzheng.qiushibaike.M.Bean.video.api.VideoApi;
 import com.example.henryzheng.qiushibaike.MyApplication;
 
 import java.io.File;
@@ -42,13 +42,14 @@ public class ApiManage {
         }
     };
     ZhuanXiangApi zhuanXiangApi;
-    VedioApi vedioApi;
+    VideoApi vedioApi;
     private static File httpCacheDirectory = new File(MyApplication.getContext().getCacheDir(), "zhihuCache");
     private static int cacheSize = 10 * 1024 * 1024; // 10 MiB
     private static Cache cache = new Cache(httpCacheDirectory, cacheSize);
     private static OkHttpClient client = new OkHttpClient.Builder()
             .addNetworkInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR)
-            .addInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR)
+//            .addInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR)
+            .addInterceptor(new LoggingInterceptor())
             .cache(cache)
             .build();
 
@@ -79,7 +80,7 @@ public class ApiManage {
 
         return zhuanXiangApi;
     }
-    public VedioApi getVedioApiService() {
+    public VideoApi getVedioApiService() {
         if (vedioApi == null) {
 //            synchronized (zhihuMonitor) {
             if (vedioApi == null) {
@@ -88,7 +89,7 @@ public class ApiManage {
                         .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                         .client(client)
                         .addConverterFactory(GsonConverterFactory.create())
-                        .build().create(VedioApi.class);
+                        .build().create(VideoApi.class);
 //                }
             }
         }

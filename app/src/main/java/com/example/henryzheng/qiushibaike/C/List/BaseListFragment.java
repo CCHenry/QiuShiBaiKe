@@ -11,8 +11,7 @@ import com.example.henryzheng.qiushibaike.C.List.i.MainFragmentInterface;
 import com.example.henryzheng.qiushibaike.C.List.p.MainFragmentsPresenter;
 import com.example.henryzheng.qiushibaike.C.adapt.list.VideoListAdapt;
 import com.example.henryzheng.qiushibaike.C.myInterface.MyItemClickListener;
-import com.example.henryzheng.qiushibaike.M.Bean.ZhuanXiang.RootListBean;
-import com.example.henryzheng.qiushibaike.M.NewsListModel.NewBaseListModel;
+import com.example.henryzheng.qiushibaike.M.listModel.BaseListModel;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
 import com.example.henryzheng.qiushibaike.M.utils.DensityUtils;
 import com.example.henryzheng.qiushibaike.R;
@@ -22,7 +21,7 @@ import butterknife.BindView;
 
 public class BaseListFragment extends BaseFragment implements MyItemClickListener,
         MainFragmentInterface {
-    NewBaseListModel newBaseListModel;
+    BaseListModel baseListModel;
     MainFragmentsPresenter presenter;
     private VideoListAdapt recycleAdapter;
     private LinearLayoutManager lin;
@@ -31,9 +30,9 @@ public class BaseListFragment extends BaseFragment implements MyItemClickListene
     @BindView(R.id.swipeRefreshLayout0)
      SwipeRefreshLayout swipeRefreshLayout;
 
-    public static BaseListFragment newInstance(NewBaseListModel imageListBaseModel) {
+    public static BaseListFragment newInstance(BaseListModel imageListBaseModel) {
         BaseListFragment f = new BaseListFragment();
-        f.newBaseListModel = imageListBaseModel;
+        f.baseListModel = imageListBaseModel;
         return f;
     }
 
@@ -45,14 +44,14 @@ public class BaseListFragment extends BaseFragment implements MyItemClickListene
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        presenter = new MainFragmentsPresenter(this, newBaseListModel.getUrl(), newBaseListModel.getType());
+        presenter = new MainFragmentsPresenter(this, baseListModel.getUrl(), baseListModel.getType());
         recycleAdapter = new VideoListAdapt(getActivity());
         lin = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(lin);
         recyclerView.setItemAnimator(new DefaultItemAnimator());// 设置增加或删除条目的动画
         recycleAdapter.setOnItemClickListener(this);
         recyclerView.setAdapter(recycleAdapter); // 设置Adapter
-//        recyclerView.setIsFooterEnable(true);
+        recyclerView.setIsFooterEnable(true);//启动下拉刷新
 //        swipeRefreshLayout.setColorSchemeColors(new int[]{R.color.hotpink,R.color.aliceblue});
         swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
         swipeRefreshLayout.setProgressViewOffset(false, DensityUtils.dp2px(context, 10), (int) getResources().getDimension(R.dimen
@@ -126,16 +125,29 @@ public class BaseListFragment extends BaseFragment implements MyItemClickListene
     }
 
 
+//    @Override
+//    public void loadNewImages(RootListBean images) {
+//        swipeRefreshLayout.setRefreshing(false);
+//        recycleAdapter.loadMoreData(images.getItems());
+//        recyclerView.setLoadingMore(false);
+//    }
+//
+//    @Override
+//    public void refreshImages(RootListBean data) {
+//        swipeRefreshLayout.setRefreshing(false);
+//        recycleAdapter.refreshData(data.getItems());
+//    }
+
     @Override
-    public void loadNewImages(RootListBean images) {
+    public void loadNewImages(Object datas) {
         swipeRefreshLayout.setRefreshing(false);
-        recycleAdapter.loadMoreData(images.getItems());
+        recycleAdapter.loadMoreData(datas);
         recyclerView.setLoadingMore(false);
     }
 
     @Override
-    public void refreshImages(RootListBean data) {
+    public void refreshImages(Object datas) {
         swipeRefreshLayout.setRefreshing(false);
-        recycleAdapter.refreshData(data.getItems());
+        recycleAdapter.refreshData(datas);
     }
 }

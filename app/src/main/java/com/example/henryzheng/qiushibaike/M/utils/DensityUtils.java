@@ -2,6 +2,7 @@ package com.example.henryzheng.qiushibaike.M.utils;
 
 import android.content.Context;
 import android.util.TypedValue;
+import android.view.WindowManager;
 
 /**
  * Created by henryzheng on 2017/1/12.
@@ -57,6 +58,27 @@ public class DensityUtils {
      */
     public static float px2sp(Context context, float pxVal) {
         return (pxVal / context.getResources().getDisplayMetrics().scaledDensity);
+    }
+
+    /**
+     * get screen size
+     * @param context
+     * @return
+     */
+
+    public static int   geSceenWidth(Context context){
+        WindowManager wm = (WindowManager) context
+                .getSystemService(Context.WINDOW_SERVICE);
+
+
+        return wm.getDefaultDisplay().getWidth();
+    }
+    public static int   geSceenHeight(Context context){
+        WindowManager wm = (WindowManager) context
+                .getSystemService(Context.WINDOW_SERVICE);
+
+
+        return wm.getDefaultDisplay().getHeight();
     }
 
 
