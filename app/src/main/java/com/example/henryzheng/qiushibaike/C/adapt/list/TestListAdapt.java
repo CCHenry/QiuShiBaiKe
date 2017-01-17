@@ -1,11 +1,9 @@
 package com.example.henryzheng.qiushibaike.C.adapt.list;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -15,12 +13,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.henryzheng.qiushibaike.C.myInterface.MyItemClickListener;
 import com.example.henryzheng.qiushibaike.M.Bean.video.Items;
-import com.example.henryzheng.qiushibaike.M.Bean.video.VideoRootBean;
-import com.example.henryzheng.qiushibaike.M.utils.CCLog;
 import com.example.henryzheng.qiushibaike.M.utils.DensityUtils;
 import com.example.henryzheng.qiushibaike.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -29,35 +24,7 @@ import butterknife.ButterKnife;
 /**
  * Created by henryzheng on 2017/1/12.
  */
-public class VideoListAdapt extends RecyclerView.Adapter<VideoListAdapt.MyViewHolder> {
-    private static final int HEAD_TYPE = 0;
-    private static final int DATA_TYPE = 1;
-    private static final int FOOT_TYPE = 2;
-
-    Context _context;
-    List<Items> datas;
-    LayoutInflater _mLayoutInflater;
-    private MyItemClickListener myItemClickListener;
-
-    public VideoListAdapt(Context context) {
-        _context = context;
-        _mLayoutInflater = LayoutInflater.from(context);
-        datas = new ArrayList<>();
-        //设置imageload的加载属性
-    }
-
-    /**
-     *
-     *
-     * @param datas
-     */
-    private void addSrc(VideoRootBean datas) {
-        for (int i = 0; i < datas.getItems().size(); i++) {
-            this.datas.add(datas.getItems().get(i));
-        }
-
-    }
-
+public class TestListAdapt extends BaseListAdapt<TestListAdapt.MyViewHolder> {
     /**
      * adapt创建
      *
@@ -65,6 +32,7 @@ public class VideoListAdapt extends RecyclerView.Adapter<VideoListAdapt.MyViewHo
      * @param viewType
      * @return
      */
+    List<Items> datas;
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == HEAD_TYPE) {
@@ -130,7 +98,7 @@ public class VideoListAdapt extends RecyclerView.Adapter<VideoListAdapt.MyViewHo
 
                 holder.textView0.setText(datas.get(position-1).getUser().getLogin());
                 holder.textView1.setText(datas.get(position-1).getContent());
-                int width=DensityUtils.geSceenWidth(_context);
+                int width= DensityUtils.geSceenWidth(_context);
                 holder.imageView1.getLayoutParams().width=width;
                 holder.imageView1.getLayoutParams().height= width;
                 holder.imageView1.requestLayout();
@@ -151,81 +119,4 @@ public class VideoListAdapt extends RecyclerView.Adapter<VideoListAdapt.MyViewHo
         }
     }
 
-    @Override
-    public int getItemCount() {
-        if (datas.size()>0){
-            return datas.size() + 2;}
-        else
-            return 0;
-    }
-
-
-
-
-    /**
-     *
-     * @param datas
-     */
-    public void loadMoreData(Object datas) {
-        addSrc((VideoRootBean) datas);
-        notifyDataSetChanged();
-        CCLog.print("loadMoreData:" + this.datas.size());
-    }
-
-    /**
-     * 下拉刷新图片
-     *
-     * @param datas 图片url的集合
-     */
-    public void refreshData(Object datas) {
-        this.datas.clear();
-        notifyDataSetChanged();
-        for (int i=((VideoRootBean)datas).getItems().size()-1;i>=0;i--){
-            this.datas.add(0,((VideoRootBean)datas).getItems().get(i));
-            notifyItemInserted(0);
-        }
-    }
-
-
-    public void setOnItemClickListener(MyItemClickListener listener) {
-        this.myItemClickListener = listener;
-    }
-
-    /**
-     * 清除url的缓存
-     */
-    public void clear() {
-        datas.clear();
-    }
-
-    /**
-     * 返回url的缓存列表
-     *
-     * @return
-     */
-    public List<Items> getImages() {
-        return datas;
-    }
-
-
-    @Override
-    public long getItemId(int position) {
-        CCLog.print("getItemId:" + position);
-        return super.getItemId(position);
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        if (getItemCount() > 0) {
-            if (position == 0) {
-                return HEAD_TYPE;
-            } else if (position == getItemCount()-1) {
-                return FOOT_TYPE;
-            } else {
-                return DATA_TYPE;
-            }
-        } else {
-            return DATA_TYPE;
-        }
-    }
 }
