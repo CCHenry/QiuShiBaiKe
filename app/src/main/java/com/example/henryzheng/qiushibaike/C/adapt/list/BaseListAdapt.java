@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.henryzheng.qiushibaike.M.Bean.video.VideoRootBean;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
 import com.example.henryzheng.qiushibaike.R;
 
@@ -140,24 +139,25 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
     }
     /**
      *
-     * @param datas
+     * @param data
      */
-    public void loadMoreData(Object datas) {
+    public void loadMoreData(List<T> data) {
         for (int i = 0; i < data.size(); i++) {
             this.data.add(data.get(i));
-        }        notifyDataSetChanged();
+        }
+        notifyDataSetChanged();
         CCLog.print("loadMoreData:" + this.data.size());
     }
 
     /**
      * 下拉刷新图片
      *
-     * @param datas 图片url的集合
+     * @param data 图片url的集合
      */
-    public void refreshData(Object datas) {
+    public void refreshData(List<T> data) {
         this.data.clear();
         notifyDataSetChanged();
-        for (int i=((VideoRootBean)datas).getItems().size()-1;i>=0;i--){
+        for (int i=(data).size()-1;i>=0;i--){
             this.data.add(0,data.get(i));
             notifyItemInserted(0);
         }
