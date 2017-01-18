@@ -1,0 +1,82 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="@dimen/margin0"
+              android:orientation="vertical"
+              tools:context="com.example.henryzheng.qiushibaike.C.List.BaseListFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h0"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@id/imageView0"
+            android:layout_width="@dimen/size0"
+            android:layout_height="@dimen/size0"
+            android:layout_margin="@dimen/margin0"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/textView0"
+            android:text="名称"
+            android:layout_margin="@dimen/margin0"
+            android:textSize="@dimen/sp0"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="asdas"
+        android:textSize="@dimen/sp0"
+        android:id="@+id/textView1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/textView2"
+
+            android:text="好笑 "/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="284"
+            android:textSize="@dimen/sp1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" ·评论"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="33"
+            android:id="@id/textView3"
+            android:textSize="@dimen/sp1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" ·分享 "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:id="@id/textView4"
+            android:textSize="@dimen/sp1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="22"
+            android:id="@id/textView5"
+            android:textSize="@dimen/sp1"/>
+    </LinearLayout>
+</LinearLayout>

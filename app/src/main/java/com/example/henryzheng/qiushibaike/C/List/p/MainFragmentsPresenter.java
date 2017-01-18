@@ -3,6 +3,14 @@ package com.example.henryzheng.qiushibaike.C.List.p;
 import android.media.Image;
 
 import com.example.henryzheng.qiushibaike.C.List.i.MainFragmentInterface;
+import com.example.henryzheng.qiushibaike.C.adapt.list.BaseListAdapt;
+import com.example.henryzheng.qiushibaike.C.adapt.list.ImageListAdapt;
+import com.example.henryzheng.qiushibaike.C.adapt.list.NewsListAdapt;
+import com.example.henryzheng.qiushibaike.C.adapt.list.TextListAdapt;
+import com.example.henryzheng.qiushibaike.C.adapt.list.VideoListAdapt;
+import com.example.henryzheng.qiushibaike.M.Bean.image.ImageRootBean;
+import com.example.henryzheng.qiushibaike.M.Bean.news.NewsRootBean;
+import com.example.henryzheng.qiushibaike.M.Bean.text.TextRootBean;
 import com.example.henryzheng.qiushibaike.M.Bean.video.VideoRootBean;
 import com.example.henryzheng.qiushibaike.M.utils.ApiManage;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
@@ -11,7 +19,6 @@ import java.util.List;
 
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
@@ -25,19 +32,16 @@ public class MainFragmentsPresenter {
     public static int REFRESH_DATA_TYPE = 1;
     MainFragmentInterface mainFragmentInterface;
     private List<Image> images;
-    String type;
+    BaseListAdapt adapt;
 
     /**
      * @param mainFragmentInterface
-     * @param url                   加载url
-     * @param type                  类型，用加载的fragment的类名表示
      */
 
-    public MainFragmentsPresenter(MainFragmentInterface mainFragmentInterface, String url, String
-            type) {
+    public MainFragmentsPresenter(MainFragmentInterface mainFragmentInterface, BaseListAdapt
+            adapt) {
         this.mainFragmentInterface = mainFragmentInterface;
-        this.url = url;
-        this.type = type;
+        this.adapt = adapt;
     }
 
     /**
@@ -47,16 +51,23 @@ public class MainFragmentsPresenter {
      */
     public void loadListData(final int load_data_type) {
         handlerPage(load_data_type);
-        handlerUrl(type);
-                ApiManage.getInstence().getVedioApiService().getLastDaily(page,
+        if (adapt instanceof VideoListAdapt) {
+            startVideoHandle(load_data_type);
+        } else if (adapt instanceof NewsListAdapt) {
+            startNewsHandle(load_data_type);
+        }else if (adapt instanceof TextListAdapt){
+            startTextHandle(load_data_type);
+        }else if (adapt instanceof ImageListAdapt){
+            startImageHandler(load_data_type);
+        }
+
+
+    }
+
+
+    private void startVideoHandle(final int load_data_type) {
+        ApiManage.getInstence().getVedioApiService().getLastDaily(page,
                 30, 0)
-                .map(new Func1<VideoRootBean, VideoRootBean>() {
-                    @Override
-                    public VideoRootBean call(VideoRootBean datas) {
-                        CCLog.print(datas.toString());
-                        return datas;
-                    }
-                })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<VideoRootBean>() {
@@ -71,18 +82,102 @@ public class MainFragmentsPresenter {
 
                     @Override
                     public void onNext(VideoRootBean rootListBean) {
-                        handlerAndShowData(load_data_type,rootListBean);
+//                        handlerAndShowData(load_data_type, rootListBean);
+                        if (load_data_type == LOAD_MORE_TYPE) {
+                            mainFragmentInterface.loadNewImages(rootListBean.getItems());
+
+                        } else if (load_data_type == REFRESH_DATA_TYPE)
+                            mainFragmentInterface.refreshImages(rootListBean.getItems());
                     }
                 });
     }
 
+    private void startNewsHandle(final int load_data_type) {
+        ApiManage.getInstence().getNewsApiService().getLastDaily(page,
+                30, 0)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<NewsRootBean>() {
+                    @Override
+                    public void onCompleted() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        CCLog.print(e.getCause().toString());
+                    }
+
+                    @Override
+                    public void onNext(NewsRootBean rootListBean) {
+//                        handlerAndShowData(load_data_type, rootListBean);
+                        if (load_data_type == LOAD_MORE_TYPE) {
+                            mainFragmentInterface.loadNewImages(rootListBean.getData());
+
+                        } else if (load_data_type == REFRESH_DATA_TYPE)
+                            mainFragmentInterface.refreshImages(rootListBean.getData());
+                    }
+                });
+    }
+    private void startTextHandle(final int load_data_type) {
+        ApiManage.getInstence().getTextApiService().getLastDaily(page,
+                30, 0)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<TextRootBean>() {
+                    @Override
+                    public void onCompleted() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        CCLog.print(e.getCause().toString());
+                    }
+
+                    @Override
+                    public void onNext(TextRootBean rootListBean) {
+//                        handlerAndShowData(load_data_type, rootListBean);
+                        if (load_data_type == LOAD_MORE_TYPE) {
+                            mainFragmentInterface.loadNewImages(rootListBean.getItems());
+
+                        } else if (load_data_type == REFRESH_DATA_TYPE)
+                            mainFragmentInterface.refreshImages(rootListBean.getItems());
+                    }
+                });
+    }
+
+    private void startImageHandler(final int load_data_type) {
+        ApiManage.getInstence().getImageApiService().getLastDaily(page,
+                30, 0)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ImageRootBean>() {
+                    @Override
+                    public void onCompleted() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        CCLog.print(e.getCause().toString());
+                    }
+
+                    @Override
+                    public void onNext(ImageRootBean rootListBean) {
+//                        handlerAndShowData(load_data_type, rootListBean);
+                        if (load_data_type == LOAD_MORE_TYPE) {
+                            mainFragmentInterface.loadNewImages(rootListBean.getItems());
+
+                        } else if (load_data_type == REFRESH_DATA_TYPE)
+                            mainFragmentInterface.refreshImages(rootListBean.getItems());
+                    }
+                });
+    }
     /**
      * 处理图片和展示
      *
      * @param load_data_type
      * @param result
      */
-    private void handlerAndShowData(final int load_data_type,VideoRootBean result) {
+    private void handlerAndShowData(final int load_data_type, VideoRootBean result) {
         if (load_data_type == LOAD_MORE_TYPE) {
             mainFragmentInterface.loadNewImages(result.getItems());
 
@@ -101,20 +196,6 @@ public class MainFragmentsPresenter {
         } else
             page++;
     }
-
-    /**
-     * 不同的mode用不同的url处理方式
-     */
-    private void handlerUrl(String type) {
-//        if (type == TodayZuiMeiModel.class.getName()) {
-//            realRequestUrl = String.format(url, System.currentTimeMillis() / 1000 - 86400 * 30 *
-//                    (page - 1));
-//        } else {
-//            realRequestUrl = String.format(url, page);
-//        }
-    }
-
-
 
 
 }

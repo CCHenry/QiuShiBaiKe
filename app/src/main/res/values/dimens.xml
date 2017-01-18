@@ -5,8 +5,13 @@
     <dimen name="size0">40dp</dimen>
     <dimen name="h0">60dp</dimen>
     <dimen name="h1">50dp</dimen>
+    <dimen name="h2">50dp</dimen><!--item news 高度-->
+
     <dimen name="sp0">15sp</dimen>
     <dimen name="sp1">13sp</dimen>
+    <dimen name="sp2">17sp</dimen>
 
     <dimen name="margin0">10dip</dimen>
+    <dimen name="margin1">6dip</dimen>
+
 </resources>

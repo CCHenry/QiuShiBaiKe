@@ -9,13 +9,13 @@ import android.view.ViewGroup;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
 import com.example.henryzheng.qiushibaike.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by henryzheng on 2017/1/12.
  */
 public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHolder> {
-    private int layoutId;
     private List<T> data;
     private Context context;
     private OnItemClickListner onItemClickListner;//单击事件
@@ -24,31 +24,30 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
     private static final int HEAD_TYPE = 0;
     private static final int DATA_TYPE = 1;
     private static final int FOOT_TYPE = 2;
-   LayoutInflater _mLayoutInflater;
+    LayoutInflater _mLayoutInflater;
+
     /**
      * @param context  //上下文
-     * @param layoutId //布局id
-     * @param data     //数据源
      */
-    public BaseListAdapt(Context context, int layoutId, List data) {
-        this.layoutId = layoutId;
-        this.data = data;
+    public BaseListAdapt(Context context) {
         this.context = context;
+        data = new ArrayList<>();
+        _mLayoutInflater = LayoutInflater.from(context);
     }
 
     @Override
     public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == HEAD_TYPE) {
             View view = _mLayoutInflater.inflate(R.layout.layout_recycle_head, parent, false);
-            BaseViewHolder holder = new BaseViewHolder(context,HEAD_TYPE, view);
+            BaseViewHolder holder = new BaseViewHolder(context, HEAD_TYPE, view);
             return holder;
         } else if (viewType == FOOT_TYPE) {
             View view = _mLayoutInflater.inflate(R.layout.layout_recycle_foot, parent, false);
-            BaseViewHolder holder = new BaseViewHolder(context,FOOT_TYPE, view);
+            BaseViewHolder holder = new BaseViewHolder(context, FOOT_TYPE, view);
             return holder;
         } else {
-            View view = _mLayoutInflater.inflate(R.layout.recycle_view_video_item, parent, false);
-            BaseViewHolder holder = new BaseViewHolder(context,DATA_TYPE, view);
+            View view = _mLayoutInflater.inflate(getLayoutItemLayout(), parent, false);
+            BaseViewHolder holder = new BaseViewHolder(context, DATA_TYPE, view);
             return holder;
         }
 //        View v = LayoutInflater.from(context).inflate(layoutId, parent, false);
@@ -79,11 +78,14 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
-        convert(holder, data.get(position));
+        if (getItemCount() > 0) {
+            if (position > 0 && position < getItemCount() - 1) {
+                convert(holder, data.get(position-1));
+            }
+        }
     }
 
     protected abstract void convert(BaseViewHolder holder, T bean);
-
 
 
     public void setOnItemClickListner(OnItemClickListner onItemClickListner) {
@@ -94,6 +96,8 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
         this.onItemLongClickListner = onItemLongClickListner;
     }
 
+    protected abstract int getLayoutItemLayout();
+
     public interface OnItemClickListner {
         void onItemClickListner(View v, int position);
     }
@@ -101,19 +105,22 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
     public interface OnItemLongClickListner {
         void onItemLongClickListner(View v, int position);
     }
+
     @Override
     public int getItemCount() {
-        if (data.size()>0){
-            return data.size() + 2;}
-        else
-            return 0;
+            if (data.size() > 0) {
+                return data.size() + 2;
+            } else
+                return 0;
+
     }
+
     @Override
     public int getItemViewType(int position) {
         if (getItemCount() > 0) {
             if (position == 0) {
                 return HEAD_TYPE;
-            } else if (position == getItemCount()-1) {
+            } else if (position == getItemCount() - 1) {
                 return FOOT_TYPE;
             } else {
                 return DATA_TYPE;
@@ -122,6 +129,7 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
             return DATA_TYPE;
         }
     }
+
     /**
      * 清除url的缓存
      */
@@ -137,8 +145,8 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
     public List<T> getImages() {
         return data;
     }
+
     /**
-     *
      * @param data
      */
     public void loadMoreData(List<T> data) {
@@ -157,8 +165,8 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
     public void refreshData(List<T> data) {
         this.data.clear();
         notifyDataSetChanged();
-        for (int i=(data).size()-1;i>=0;i--){
-            this.data.add(0,data.get(i));
+        for (int i = (data).size() - 1; i >= 0; i--) {
+            this.data.add(0, data.get(i));
             notifyItemInserted(0);
         }
     }

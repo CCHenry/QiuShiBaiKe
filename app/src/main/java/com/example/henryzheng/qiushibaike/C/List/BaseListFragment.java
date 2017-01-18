@@ -9,7 +9,7 @@ import android.view.View;
 import com.example.henryzheng.qiushibaike.C.Base.BaseFragment;
 import com.example.henryzheng.qiushibaike.C.List.i.MainFragmentInterface;
 import com.example.henryzheng.qiushibaike.C.List.p.MainFragmentsPresenter;
-import com.example.henryzheng.qiushibaike.C.adapt.list.VideoListAdapt;
+import com.example.henryzheng.qiushibaike.C.adapt.list.BaseListAdapt;
 import com.example.henryzheng.qiushibaike.C.myInterface.MyItemClickListener;
 import com.example.henryzheng.qiushibaike.M.listModel.BaseListModel;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
@@ -25,7 +25,7 @@ public class BaseListFragment extends BaseFragment implements MyItemClickListene
         MainFragmentInterface {
     BaseListModel baseListModel;
     MainFragmentsPresenter presenter;
-    private VideoListAdapt recycleAdapter;
+    public  BaseListAdapt recycleAdapter;
     private LinearLayoutManager lin;
     @BindView(R.id.recycleView0)
     MyRecycleView recyclerView;
@@ -37,7 +37,11 @@ public class BaseListFragment extends BaseFragment implements MyItemClickListene
         f.baseListModel = imageListBaseModel;
         return f;
     }
-
+    public static BaseListFragment newInstance(BaseListAdapt adapt) {
+        BaseListFragment f = new BaseListFragment();
+        f.recycleAdapter = adapt;
+        return f;
+    }
     @Override
     public int getContentViewId() {
         return R.layout.fragment_base_list;
@@ -46,13 +50,11 @@ public class BaseListFragment extends BaseFragment implements MyItemClickListene
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        presenter = new MainFragmentsPresenter(this, baseListModel.getUrl(), baseListModel
-                .getType());
-        recycleAdapter = new VideoListAdapt(getActivity());
+        presenter = new MainFragmentsPresenter(this,recycleAdapter);
         lin = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(lin);
         recyclerView.setItemAnimator(new DefaultItemAnimator());// 设置增加或删除条目的动画
-        recycleAdapter.setOnItemClickListener(this);
+//        recycleAdapter.setOnItemClickListener(this);
         recyclerView.setAdapter(recycleAdapter); // 设置Adapter
         recyclerView.setIsFooterEnable(true);//启动下拉刷新
         swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_light, android.R

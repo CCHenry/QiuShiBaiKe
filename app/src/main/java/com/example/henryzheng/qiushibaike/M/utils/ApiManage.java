@@ -1,6 +1,9 @@
 package com.example.henryzheng.qiushibaike.M.utils;
 
 import com.example.henryzheng.qiushibaike.M.Bean.ZhuanXiang.api.ZhuanXiangApi;
+import com.example.henryzheng.qiushibaike.M.Bean.image.api.ImageApi;
+import com.example.henryzheng.qiushibaike.M.Bean.news.api.NewsApi;
+import com.example.henryzheng.qiushibaike.M.Bean.text.api.TextApi;
 import com.example.henryzheng.qiushibaike.M.Bean.video.api.VideoApi;
 import com.example.henryzheng.qiushibaike.MyApplication;
 
@@ -43,6 +46,10 @@ public class ApiManage {
     };
     ZhuanXiangApi zhuanXiangApi;
     VideoApi vedioApi;
+    NewsApi newsApi;
+    TextApi textApi;
+    ImageApi imageApi;
+
     private static File httpCacheDirectory = new File(MyApplication.getContext().getCacheDir(), "zhihuCache");
     private static int cacheSize = 10 * 1024 * 1024; // 10 MiB
     private static Cache cache = new Cache(httpCacheDirectory, cacheSize);
@@ -94,5 +101,50 @@ public class ApiManage {
             }
         }
         return vedioApi;
+    }
+    public NewsApi getNewsApiService() {
+        if (newsApi == null) {
+//            synchronized (zhihuMonitor) {
+            if (newsApi == null) {
+                newsApi = new Retrofit.Builder()
+                        .baseUrl("http://news.qiushibaike.com/")
+                        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                        .client(client)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build().create(NewsApi.class);
+//                }
+            }
+        }
+        return newsApi;
+    }
+    public TextApi getTextApiService() {
+        if (textApi == null) {
+//            synchronized (zhihuMonitor) {
+            if (textApi == null) {
+                textApi = new Retrofit.Builder()
+                        .baseUrl("http://m2.qiushibaike.com/article/")
+                        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                        .client(client)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build().create(TextApi.class);
+//                }
+            }
+        }
+        return textApi;
+    }
+    public ImageApi getImageApiService() {
+        if (imageApi == null) {
+//            synchronized (zhihuMonitor) {
+            if (imageApi == null) {
+                imageApi = new Retrofit.Builder()
+                        .baseUrl("http://m2.qiushibaike.com/article/")
+                        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                        .client(client)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build().create(ImageApi.class);
+//                }
+            }
+        }
+        return imageApi;
     }
 }

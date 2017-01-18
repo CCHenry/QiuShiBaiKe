@@ -1,0 +1,90 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="@dimen/margin0"
+              android:orientation="vertical"
+              tools:context="com.example.henryzheng.qiushibaike.C.List.BaseListFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@id/imageView0"
+            android:layout_width="@dimen/h2"
+            android:layout_height="@dimen/h2"
+            android:layout_alignParentRight="true"
+            android:background="@mipmap/ic_launcher"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/imageView0"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textView0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="新闻内容新闻内容新闻内容"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@id/relativeLayout0"
+               >
+
+                <ImageView
+                    android:id="@id/imageView1"
+
+                    android:layout_width="@dimen/h2"
+                    android:layout_height="@dimen/h2"
+                    android:background="@mipmap/ic_launcher"
+
+                    />
+
+
+                <ImageView
+                    android:id="@id/imageView2"
+                    android:layout_width="@dimen/h2"
+                    android:layout_height="@dimen/h2"
+                    android:layout_centerInParent="true"
+                    android:background="@mipmap/ic_launcher"
+
+                    />
+
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:id="@id/imageView3"
+                    android:layout_width="@dimen/h2"
+                    android:layout_height="@dimen/h2"
+                    android:background="@mipmap/ic_launcher"
+
+                    />
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@id/textView1"
+                    android:text="01-18 10:08"/>
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@id/textView2"
+                    android:text="凤凰网"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
