@@ -12,6 +12,13 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseActivity extends FragmentActivity {
     public Context context;
+//    @Override
+//    public void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        ButterKnife.bind(this);
+//        context=this;
+//    }
+
     @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);

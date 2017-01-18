@@ -3,13 +3,15 @@
   */
 package com.example.henryzheng.qiushibaike.M.Bean.video;
 
+import java.io.Serializable;
+
 /**
  * Auto-generated: 2017-01-17 13:47:5
  *
  * @author aTool.org (i@aTool.org)
  * @website http://www.atool.org/json2javabean.php
  */
-public class Votes {
+public class Votes implements Serializable {
 
     private int down;
 

@@ -1,7 +1,5 @@
 package com.example.henryzheng.qiushibaike.C.info.video;
 
-import android.os.Bundle;
-
 import com.example.henryzheng.qiushibaike.C.info.BaseInfoActivity;
 import com.example.henryzheng.qiushibaike.R;
 

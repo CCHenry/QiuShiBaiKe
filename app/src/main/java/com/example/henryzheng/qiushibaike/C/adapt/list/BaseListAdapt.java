@@ -27,7 +27,7 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
     LayoutInflater _mLayoutInflater;
 
     /**
-     * @param context  //上下文
+     * @param context //上下文
      */
     public BaseListAdapt(Context context) {
         this.context = context;
@@ -47,31 +47,31 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
             return holder;
         } else {
             View view = _mLayoutInflater.inflate(getLayoutItemLayout(), parent, false);
-            BaseViewHolder holder = new BaseViewHolder(context, DATA_TYPE, view);
+            final BaseViewHolder holder = new BaseViewHolder(context, DATA_TYPE, view);
+
+
+            //单击事件回调
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (clickFlag) {
+                        onItemClickListner.onItemClickListner(v, holder.getLayoutPosition());
+                    }
+                    clickFlag = true;
+                }
+            });
+            //单击长按事件回调
+            view.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    onItemLongClickListner.onItemLongClickListner(v, holder.getLayoutPosition());
+                    clickFlag = false;
+                    return false;
+                }
+            });
             return holder;
         }
-//        View v = LayoutInflater.from(context).inflate(layoutId, parent, false);
-//        final BaseViewHolder holder = new BaseViewHolder(v, context,viewType);
 
-//        //单击事件回调
-//        v.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (clickFlag) {
-//                    onItemClickListner.onItemClickListner(v, holder.getLayoutPosition());
-//                }
-//                clickFlag = true;
-//            }
-//        });
-//        //单击长按事件回调
-//        v.setOnLongClickListener(new View.OnLongClickListener() {
-//            @Override
-//            public boolean onLongClick(View v) {
-//                onItemLongClickListner.onItemLongClickListner(v, holder.getLayoutPosition());
-//                clickFlag = false;
-//                return false;
-//            }
-//        });
 //        return holder;
     }
 
@@ -80,7 +80,7 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
     public void onBindViewHolder(BaseViewHolder holder, int position) {
         if (getItemCount() > 0) {
             if (position > 0 && position < getItemCount() - 1) {
-                convert(holder, data.get(position-1));
+                convert(holder, data.get(position - 1));
             }
         }
     }
@@ -108,10 +108,10 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
 
     @Override
     public int getItemCount() {
-            if (data.size() > 0) {
-                return data.size() + 2;
-            } else
-                return 0;
+        if (data.size() > 0) {
+            return data.size() + 2;
+        } else
+            return 0;
 
     }
 
@@ -142,7 +142,7 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
      *
      * @return
      */
-    public List<T> getImages() {
+    public List<T> getData() {
         return data;
     }
 

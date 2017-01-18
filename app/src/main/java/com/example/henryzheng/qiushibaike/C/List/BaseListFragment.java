@@ -1,5 +1,6 @@
 package com.example.henryzheng.qiushibaike.C.List;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -10,19 +11,20 @@ import com.example.henryzheng.qiushibaike.C.Base.BaseFragment;
 import com.example.henryzheng.qiushibaike.C.List.i.MainFragmentInterface;
 import com.example.henryzheng.qiushibaike.C.List.p.MainFragmentsPresenter;
 import com.example.henryzheng.qiushibaike.C.adapt.list.BaseListAdapt;
-import com.example.henryzheng.qiushibaike.C.myInterface.MyItemClickListener;
+import com.example.henryzheng.qiushibaike.C.info.video.VideoInfoActivity;
 import com.example.henryzheng.qiushibaike.M.listModel.BaseListModel;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
 import com.example.henryzheng.qiushibaike.M.utils.DensityUtils;
 import com.example.henryzheng.qiushibaike.R;
 import com.example.henryzheng.qiushibaike.V.identityView.MyRecycleView;
 
+import java.io.Serializable;
 import java.util.List;
 
 import butterknife.BindView;
 
-public class BaseListFragment extends BaseFragment implements MyItemClickListener,
-        MainFragmentInterface {
+public class BaseListFragment extends BaseFragment implements
+        MainFragmentInterface, BaseListAdapt.OnItemClickListner {
     BaseListModel baseListModel;
     MainFragmentsPresenter presenter;
     public  BaseListAdapt recycleAdapter;
@@ -54,7 +56,7 @@ public class BaseListFragment extends BaseFragment implements MyItemClickListene
         lin = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(lin);
         recyclerView.setItemAnimator(new DefaultItemAnimator());// 设置增加或删除条目的动画
-//        recycleAdapter.setOnItemClickListener(this);
+        recycleAdapter.setOnItemClickListner(this);
         recyclerView.setAdapter(recycleAdapter); // 设置Adapter
         recyclerView.setIsFooterEnable(true);//启动下拉刷新
         swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_light, android.R
@@ -86,16 +88,16 @@ public class BaseListFragment extends BaseFragment implements MyItemClickListene
     }
 
 
-    @Override
-    public void onItemClick(View view, int postion) {
-//        Intent intent = new Intent(getActivity(), BigImageShowActivity.class);
-//        intent.putExtra("images", (Serializable) recycleAdapter.getImages());
-//        intent.putExtra("imageListBaseModel", imageListBaseModel);
-//        intent.putExtra("position", postion - 1);
-//        presenter.loadImageToCacheForBG(postion, recycleAdapter.getImages().get(postion - 1)
-// .getImage_url());
-//        startActivity(intent);
-    }
+//    @Override
+//    public void onItemClick(View view, int postion) {
+////        Intent intent = new Intent(getActivity(), BigImageShowActivity.class);
+////        intent.putExtra("images", (Serializable) recycleAdapter.getImages());
+////        intent.putExtra("imageListBaseModel", imageListBaseModel);
+////        intent.putExtra("position", postion - 1);
+////        presenter.loadImageToCacheForBG(postion, recycleAdapter.getImages().get(postion - 1)
+//// .getImage_url());
+////        startActivity(intent);
+//    }
 
 
     @Override
@@ -156,5 +158,14 @@ public class BaseListFragment extends BaseFragment implements MyItemClickListene
     public void refreshImages(List datas) {
         swipeRefreshLayout.setRefreshing(false);
         recycleAdapter.refreshData(datas);
+    }
+
+    @Override
+    public void onItemClickListner(View v, int position) {
+       Intent intent = new Intent(getActivity(), VideoInfoActivity.class);
+       intent.putExtra("data", (Serializable) recycleAdapter.getData());
+        intent.putExtra("position", position - 1);
+
+        startActivity(intent);
     }
 }

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@id/linearLayout0"
+    android:background="@color/yellow"
     tools:context="com.example.henryzheng.qiushibaike.C.info.BaseInfoActivity">
 <RelativeLayout
     android:layout_width="match_parent"
