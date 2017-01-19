@@ -11,7 +11,7 @@ import com.example.henryzheng.qiushibaike.R;
 public class VideoListAdapt extends BaseListAdapt {
 
     /**
-     * @param context  //上下文
+     * @param context //上下文
      */
     public VideoListAdapt(Context context) {
         super(context);
@@ -19,11 +19,13 @@ public class VideoListAdapt extends BaseListAdapt {
 
     @Override
     protected void convert(BaseViewHolder holder, Object bean) {
-        Items data= (Items) bean;
-        holder.setText(R.id.textView0, data.getUser().getLogin());
+        Items data = (Items) bean;
+        if (data.getUser() != null) {
+            holder.setText(R.id.textView0, data.getUser().getLogin());
+            holder.setImageResource(R.id.imageView0, "http:" + data.getUser().getThumb(), true);
+        }
         holder.setText(R.id.textView1, data.getContent());
-        holder.setImageResource(R.id.imageView0,"http:"+data.getUser().getThumb(),true);
-        holder.setImageResource(R.id.imageView1,data.getPic_url(),false);
+        holder.setImageResource(R.id.imageView1, data.getPic_url(), false);
     }
 
     @Override

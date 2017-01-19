@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@id/actionBar_back"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/h1"
+                android:background="@color/blue"
+                android:onClick="actionBatToBack"
+
+                android:orientation="vertical">
+
+    <Button
+        android:id="@+id/actionBar_back_btn"
+        android:layout_width="@dimen/size0"
+        android:layout_height="@dimen/size0"
+        android:layout_centerVertical="true"
+        android:background="@drawable/common_navbar_back_normal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/sp2"
+        android:layout_marginLeft="@dimen/margin1"
+        android:textColor="@color/white"
+        android:layout_toRightOf="@+id/actionBar_back_btn"
+        android:text="详情"/>
+</RelativeLayout>

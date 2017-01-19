@@ -163,7 +163,7 @@ public class BaseListFragment extends BaseFragment implements
     @Override
     public void onItemClickListner(View v, int position) {
        Intent intent = new Intent(getActivity(), VideoInfoActivity.class);
-       intent.putExtra("data", (Serializable) recycleAdapter.getData());
+       intent.putExtra("data", (Serializable) recycleAdapter.getData().get(position-1));
         intent.putExtra("position", position - 1);
 
         startActivity(intent);

@@ -88,6 +88,8 @@
     <item name="viewPage1" type="id">false</item>
     <item name="viewPage2" type="id">false</item>
     <item name="viewPage3" type="id">false</item>
-
+    <item name="actionBar" type="id">false</item>
+    <item name="actionBar_back" type="id">false</item>
+    <item name="actionBar_back_btn" type="id">false</item>
 
 </resources>

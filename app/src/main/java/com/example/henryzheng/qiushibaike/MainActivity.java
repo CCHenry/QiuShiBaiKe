@@ -9,7 +9,6 @@ import com.example.henryzheng.qiushibaike.M.utils.ApiManage;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import rx.Observer;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
@@ -24,9 +23,12 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
         ApiManage.getInstence().getTopNewsService();
+    }
+
+    @Override
+    public int getContentViewById() {
+        return R.layout.activity_main;
     }
 
     @Override
