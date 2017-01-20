@@ -3,11 +3,11 @@ package com.example.henryzheng.qiushibaike.C.List.p;
 import android.media.Image;
 
 import com.example.henryzheng.qiushibaike.C.List.i.MainFragmentInterface;
-import com.example.henryzheng.qiushibaike.C.adapt.list.BaseListAdapt;
-import com.example.henryzheng.qiushibaike.C.adapt.list.ImageListAdapt;
-import com.example.henryzheng.qiushibaike.C.adapt.list.NewsListAdapt;
-import com.example.henryzheng.qiushibaike.C.adapt.list.TextListAdapt;
-import com.example.henryzheng.qiushibaike.C.adapt.list.VideoListAdapt;
+import com.example.henryzheng.qiushibaike.C.List.adapt.BaseListAdapt;
+import com.example.henryzheng.qiushibaike.C.List.adapt.ImageListAdapt;
+import com.example.henryzheng.qiushibaike.C.List.adapt.NewsListAdapt;
+import com.example.henryzheng.qiushibaike.C.List.adapt.TextListAdapt;
+import com.example.henryzheng.qiushibaike.C.List.adapt.VideoListAdapt;
 import com.example.henryzheng.qiushibaike.M.Bean.image.ImageRootBean;
 import com.example.henryzheng.qiushibaike.M.Bean.news.NewsRootBean;
 import com.example.henryzheng.qiushibaike.M.Bean.text.TextRootBean;
@@ -84,10 +84,10 @@ public class MainFragmentsPresenter {
                     public void onNext(VideoRootBean rootListBean) {
 //                        handlerAndShowData(load_data_type, rootListBean);
                         if (load_data_type == LOAD_MORE_TYPE) {
-                            mainFragmentInterface.loadNewImages(rootListBean.getItems());
+                            mainFragmentInterface.loadNewData(rootListBean.getItems());
 
                         } else if (load_data_type == REFRESH_DATA_TYPE)
-                            mainFragmentInterface.refreshImages(rootListBean.getItems());
+                            mainFragmentInterface.refreshData(rootListBean.getItems());
                     }
                 });
     }
@@ -111,10 +111,10 @@ public class MainFragmentsPresenter {
                     public void onNext(NewsRootBean rootListBean) {
 //                        handlerAndShowData(load_data_type, rootListBean);
                         if (load_data_type == LOAD_MORE_TYPE) {
-                            mainFragmentInterface.loadNewImages(rootListBean.getData());
+                            mainFragmentInterface.loadNewData(rootListBean.getData());
 
                         } else if (load_data_type == REFRESH_DATA_TYPE)
-                            mainFragmentInterface.refreshImages(rootListBean.getData());
+                            mainFragmentInterface.refreshData(rootListBean.getData());
                     }
                 });
     }
@@ -137,10 +137,10 @@ public class MainFragmentsPresenter {
                     public void onNext(TextRootBean rootListBean) {
 //                        handlerAndShowData(load_data_type, rootListBean);
                         if (load_data_type == LOAD_MORE_TYPE) {
-                            mainFragmentInterface.loadNewImages(rootListBean.getItems());
+                            mainFragmentInterface.loadNewData(rootListBean.getItems());
 
                         } else if (load_data_type == REFRESH_DATA_TYPE)
-                            mainFragmentInterface.refreshImages(rootListBean.getItems());
+                            mainFragmentInterface.refreshData(rootListBean.getItems());
                     }
                 });
     }
@@ -164,10 +164,10 @@ public class MainFragmentsPresenter {
                     public void onNext(ImageRootBean rootListBean) {
 //                        handlerAndShowData(load_data_type, rootListBean);
                         if (load_data_type == LOAD_MORE_TYPE) {
-                            mainFragmentInterface.loadNewImages(rootListBean.getItems());
+                            mainFragmentInterface.loadNewData(rootListBean.getItems());
 
                         } else if (load_data_type == REFRESH_DATA_TYPE)
-                            mainFragmentInterface.refreshImages(rootListBean.getItems());
+                            mainFragmentInterface.refreshData(rootListBean.getItems());
                     }
                 });
     }
@@ -179,10 +179,10 @@ public class MainFragmentsPresenter {
      */
     private void handlerAndShowData(final int load_data_type, VideoRootBean result) {
         if (load_data_type == LOAD_MORE_TYPE) {
-            mainFragmentInterface.loadNewImages(result.getItems());
+            mainFragmentInterface.loadNewData(result.getItems());
 
         } else if (load_data_type == REFRESH_DATA_TYPE)
-            mainFragmentInterface.refreshImages(result.getItems());
+            mainFragmentInterface.refreshData(result.getItems());
     }
 
     /**

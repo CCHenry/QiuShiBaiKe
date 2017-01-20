@@ -27,7 +27,7 @@ public class Items implements Serializable{
 
     private Image_size image_size;
 
-    private int id;
+    private String id;
 
     private String low_loc;
 
@@ -119,11 +119,11 @@ public class Items implements Serializable{
         this.image_size = image_size;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.henryzheng.qiushibaike.C.Base.BaseActivity;
-import com.example.henryzheng.qiushibaike.M.Bean.ZhuanXiang.RootListBean;
+import com.example.henryzheng.qiushibaike.M.Bean.test.RootListBean;
 import com.example.henryzheng.qiushibaike.M.utils.ApiManage;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
 

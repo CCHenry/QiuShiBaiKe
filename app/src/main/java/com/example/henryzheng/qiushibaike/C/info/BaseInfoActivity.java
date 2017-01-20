@@ -16,6 +16,10 @@ public abstract class BaseInfoActivity extends BaseActivity {
 
     /**
      * actionBar返回
+     *
      * @param view
      */
-    public  abstract  void actionBatToBack(View view);}
+    public void actionBatToBack(View view) {
+        finish();
+    }
+}

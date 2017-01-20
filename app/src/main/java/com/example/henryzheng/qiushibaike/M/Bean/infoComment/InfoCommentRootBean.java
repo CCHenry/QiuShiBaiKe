@@ -1,23 +1,22 @@
 /**
   * Copyright 2017 aTool.org 
   */
-package com.example.henryzheng.qiushibaike.M.Bean.ZhuanXiang;
+package com.example.henryzheng.qiushibaike.M.Bean.infoComment;
 import java.util.List;
 
 /**
- * Auto-generated: 2017-01-12 10:31:50
+ * Auto-generated: 2017-01-20 11:17:40
  *
  * @author aTool.org (i@aTool.org)
  * @website http://www.atool.org/json2javabean.php
  */
-public class RootListBean {
+public class InfoCommentRootBean {
 
     private int count;
     private List<Items> items;
     private int total;
     private int page;
     private int err;
-    private int refresh;
     public void setCount(int count) {
          this.count = count;
      }
@@ -53,11 +52,4 @@ public class RootListBean {
          return err;
      }
 
-    public int getRefresh() {
-        return refresh;
-    }
-
-    public void setRefresh(int refresh) {
-        this.refresh = refresh;
-    }
 }

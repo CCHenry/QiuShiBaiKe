@@ -1,4 +1,4 @@
-package com.example.henryzheng.qiushibaike.C.adapt.list;
+package com.example.henryzheng.qiushibaike.C.List.adapt;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -38,7 +38,7 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
     @Override
     public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == HEAD_TYPE) {
-            View view = _mLayoutInflater.inflate(R.layout.layout_recycle_head, parent, false);
+            View view = _mLayoutInflater.inflate(getHeadViewById(), parent, false);
             BaseViewHolder holder = new BaseViewHolder(context, HEAD_TYPE, view);
             return holder;
         } else if (viewType == FOOT_TYPE) {
@@ -48,7 +48,6 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
         } else {
             View view = _mLayoutInflater.inflate(getLayoutItemLayout(), parent, false);
             final BaseViewHolder holder = new BaseViewHolder(context, DATA_TYPE, view);
-
 
             //单击事件回调
             view.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +73,9 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
 
 //        return holder;
     }
-
+    public int  getHeadViewById(){
+        return R.layout.layout_recycle_head;
+    }
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
@@ -82,10 +83,23 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
             if (position > 0 && position < getItemCount() - 1) {
                 convert(holder, data.get(position - 1));
             }
+            else if (position==0){
+                convertByHead(holder);
+            }else if (position==getItemCount()-1){
+                convertByBottom(holder);
+
+            }
         }
+
     }
 
     protected abstract void convert(BaseViewHolder holder, T bean);
+    public  void convertByHead(BaseViewHolder holder){
+
+    }
+    public  void convertByBottom(BaseViewHolder holder){
+
+    }
 
 
     public void setOnItemClickListner(OnItemClickListner onItemClickListner) {

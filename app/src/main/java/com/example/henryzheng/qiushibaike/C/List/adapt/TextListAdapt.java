@@ -1,4 +1,4 @@
-package com.example.henryzheng.qiushibaike.C.adapt.list;
+package com.example.henryzheng.qiushibaike.C.List.adapt;
 
 import android.content.Context;
 

@@ -13,10 +13,10 @@ import android.widget.TextView;
 
 import com.example.henryzheng.qiushibaike.C.Base.BaseFragment;
 import com.example.henryzheng.qiushibaike.C.List.BaseListFragment;
-import com.example.henryzheng.qiushibaike.C.adapt.list.ImageListAdapt;
-import com.example.henryzheng.qiushibaike.C.adapt.list.NewsListAdapt;
-import com.example.henryzheng.qiushibaike.C.adapt.list.TextListAdapt;
-import com.example.henryzheng.qiushibaike.C.adapt.list.VideoListAdapt;
+import com.example.henryzheng.qiushibaike.C.List.adapt.ImageListAdapt;
+import com.example.henryzheng.qiushibaike.C.List.adapt.NewsListAdapt;
+import com.example.henryzheng.qiushibaike.C.List.adapt.TextListAdapt;
+import com.example.henryzheng.qiushibaike.C.List.adapt.VideoListAdapt;
 import com.example.henryzheng.qiushibaike.R;
 
 import java.util.ArrayList;

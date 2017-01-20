@@ -8,9 +8,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.example.henryzheng.qiushibaike.C.Base.BaseFragment;
+import com.example.henryzheng.qiushibaike.C.List.adapt.BaseListAdapt;
+import com.example.henryzheng.qiushibaike.C.List.adapt.NewsListAdapt;
+import com.example.henryzheng.qiushibaike.C.List.adapt.VideoListAdapt;
 import com.example.henryzheng.qiushibaike.C.List.i.MainFragmentInterface;
 import com.example.henryzheng.qiushibaike.C.List.p.MainFragmentsPresenter;
-import com.example.henryzheng.qiushibaike.C.adapt.list.BaseListAdapt;
+import com.example.henryzheng.qiushibaike.C.info.news.NewsInfoActivity;
 import com.example.henryzheng.qiushibaike.C.info.video.VideoInfoActivity;
 import com.example.henryzheng.qiushibaike.M.listModel.BaseListModel;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
@@ -27,7 +30,7 @@ public class BaseListFragment extends BaseFragment implements
         MainFragmentInterface, BaseListAdapt.OnItemClickListner {
     BaseListModel baseListModel;
     MainFragmentsPresenter presenter;
-    public  BaseListAdapt recycleAdapter;
+    public BaseListAdapt recycleAdapter;
     private LinearLayoutManager lin;
     @BindView(R.id.recycleView0)
     MyRecycleView recyclerView;
@@ -39,11 +42,13 @@ public class BaseListFragment extends BaseFragment implements
         f.baseListModel = imageListBaseModel;
         return f;
     }
+
     public static BaseListFragment newInstance(BaseListAdapt adapt) {
         BaseListFragment f = new BaseListFragment();
         f.recycleAdapter = adapt;
         return f;
     }
+
     @Override
     public int getContentViewId() {
         return R.layout.fragment_base_list;
@@ -52,7 +57,7 @@ public class BaseListFragment extends BaseFragment implements
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        presenter = new MainFragmentsPresenter(this,recycleAdapter);
+        presenter = new MainFragmentsPresenter(this, recycleAdapter);
         lin = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(lin);
         recyclerView.setItemAnimator(new DefaultItemAnimator());// 设置增加或删除条目的动画
@@ -64,7 +69,7 @@ public class BaseListFragment extends BaseFragment implements
                 .holo_green_light);
         swipeRefreshLayout.setProgressViewOffset(false, DensityUtils.dp2px(context, 10), (int)
                 getResources().getDimension(R.dimen
-                .h1) + DensityUtils.dp2px(context, 50));
+                        .h1) + DensityUtils.dp2px(context, 50));
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -88,17 +93,6 @@ public class BaseListFragment extends BaseFragment implements
     }
 
 
-//    @Override
-//    public void onItemClick(View view, int postion) {
-////        Intent intent = new Intent(getActivity(), BigImageShowActivity.class);
-////        intent.putExtra("images", (Serializable) recycleAdapter.getImages());
-////        intent.putExtra("imageListBaseModel", imageListBaseModel);
-////        intent.putExtra("position", postion - 1);
-////        presenter.loadImageToCacheForBG(postion, recycleAdapter.getImages().get(postion - 1)
-//// .getImage_url());
-////        startActivity(intent);
-//    }
-
 
     @Override
     public void onResume() {
@@ -114,57 +108,39 @@ public class BaseListFragment extends BaseFragment implements
         CCLog.print("onDestroyView");
     }
 
-//    @Override
-//    public void loadNewImages(List<Image> images) {
-//        swipeRefreshLayout.setRefreshing(false);
-//        recycleAdapter.loadMoreData(images);
-//        recyclerView.setLoadingMore(false);
-//    }
-//
-//    @Override
-//    public void refreshImages(List<Image> images1) {
-//        swipeRefreshLayout.setRefreshing(false);
-//        recycleAdapter.refreshData(images1);
-//    }
-
     @Override
     public void onDestroy() {
         super.onDestroy();
     }
 
 
-//    @Override
-//    public void loadNewImages(RootListBean images) {
-//        swipeRefreshLayout.setRefreshing(false);
-//        recycleAdapter.loadMoreData(images.getItems());
-//        recyclerView.setLoadingMore(false);
-//    }
-//
-//    @Override
-//    public void refreshImages(RootListBean data) {
-//        swipeRefreshLayout.setRefreshing(false);
-//        recycleAdapter.refreshData(data.getItems());
-//    }
 
 
     @Override
-    public void loadNewImages(List datas) {
+    public void loadNewData(List datas) {
         swipeRefreshLayout.setRefreshing(false);
         recycleAdapter.loadMoreData(datas);
         recyclerView.setLoadingMore(false);
     }
 
     @Override
-    public void refreshImages(List datas) {
+    public void refreshData(List datas) {
         swipeRefreshLayout.setRefreshing(false);
         recycleAdapter.refreshData(datas);
     }
 
     @Override
     public void onItemClickListner(View v, int position) {
-       Intent intent = new Intent(getActivity(), VideoInfoActivity.class);
-       intent.putExtra("data", (Serializable) recycleAdapter.getData().get(position-1));
-        intent.putExtra("position", position - 1);
+        Intent intent = null;
+        if (recycleAdapter instanceof VideoListAdapt) {
+            intent = new Intent(getActivity(), VideoInfoActivity.class);
+            intent.putExtra("data", (Serializable) recycleAdapter.getData().get(position - 1));
+            intent.putExtra("position", position - 1);
+        } else if (recycleAdapter instanceof NewsListAdapt) {
+            intent = new Intent(getActivity(), NewsInfoActivity.class);
+            intent.putExtra("data", (Serializable) recycleAdapter.getData().get(position - 1));
+            intent.putExtra("position", position - 1);
+        }
 
         startActivity(intent);
     }

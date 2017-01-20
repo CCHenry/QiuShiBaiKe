@@ -13,9 +13,12 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 
 import com.example.henryzheng.qiushibaike.C.info.BaseInfoActivity;
+import com.example.henryzheng.qiushibaike.C.info.adapt.InfoCommentAdapt;
+import com.example.henryzheng.qiushibaike.C.info.p.BaseInfoHandlerPresenter;
 import com.example.henryzheng.qiushibaike.M.Bean.video.Items;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
 import com.example.henryzheng.qiushibaike.R;
+import com.example.henryzheng.qiushibaike.V.identityView.MyRecycleView;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,6 +33,8 @@ public class VideoInfoActivity extends BaseInfoActivity {
     public SurfaceView surfaceView;
     @BindView(R.id.seekBar)
     public SeekBar seekBar;
+    @BindView(R.id.recycleView0)
+    public MyRecycleView recycleView0;
     //读取本地文件
     private File file = new File("/storage/sdcard1/音乐/", "曾经的你.mp4");
     //访问网络视频
@@ -37,6 +42,8 @@ public class VideoInfoActivity extends BaseInfoActivity {
     private TimerTask mTimerTask;
     private Timer mTimer;
     private boolean isChanging = false;
+    BaseInfoHandlerPresenter presenter;
+    private String id;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,18 +51,18 @@ public class VideoInfoActivity extends BaseInfoActivity {
 
         handlerData();
         initDataAndListener();
+        initComment();
     }
+
+
 
     private void handlerData() {
         Intent intent = getIntent();
         Items items = (Items) intent.getSerializableExtra("data");
         uri = items.getHigh_url();
+        id=items.getId();
     }
 
-    @Override
-    public void actionBatToBack(View view) {
-        CCLog.print("asda");
-    }
 
     @Override
     public int getContentViewById() {
@@ -224,7 +231,10 @@ public class VideoInfoActivity extends BaseInfoActivity {
         };
         mTimer.schedule(mTimerTask, 0, 10);
     }
-
+    private void initComment() {
+        presenter=new BaseInfoHandlerPresenter(this,new InfoCommentAdapt(this),recycleView0,id);
+        presenter.loadListData(BaseInfoHandlerPresenter.REFRESH_DATA_TYPE);
+    }
     @Override
     protected void onPause() {
         super.onPause();

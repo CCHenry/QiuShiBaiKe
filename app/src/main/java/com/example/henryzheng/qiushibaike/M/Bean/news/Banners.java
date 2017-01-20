@@ -2,6 +2,7 @@
   * Copyright 2017 aTool.org 
   */
 package com.example.henryzheng.qiushibaike.M.Bean.news;
+import java.io.Serializable;
 import java.util.List;
 /**
  * Auto-generated: 2017-01-18 11:33:19
@@ -9,7 +10,7 @@ import java.util.List;
  * @author aTool.org (i@aTool.org)
  * @website http://www.atool.org/json2javabean.php
  */
-public class Banners {
+public class Banners  implements Serializable {
 
     private int status;
     private int view_count;

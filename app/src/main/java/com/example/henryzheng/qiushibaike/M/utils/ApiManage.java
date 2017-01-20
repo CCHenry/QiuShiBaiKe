@@ -1,6 +1,7 @@
 package com.example.henryzheng.qiushibaike.M.utils;
 
-import com.example.henryzheng.qiushibaike.M.Bean.ZhuanXiang.api.ZhuanXiangApi;
+import com.example.henryzheng.qiushibaike.M.Bean.infoComment.api.InfoCommentApi;
+import com.example.henryzheng.qiushibaike.M.Bean.test.api.ZhuanXiangApi;
 import com.example.henryzheng.qiushibaike.M.Bean.image.api.ImageApi;
 import com.example.henryzheng.qiushibaike.M.Bean.news.api.NewsApi;
 import com.example.henryzheng.qiushibaike.M.Bean.text.api.TextApi;
@@ -49,7 +50,7 @@ public class ApiManage {
     NewsApi newsApi;
     TextApi textApi;
     ImageApi imageApi;
-
+    InfoCommentApi infoCommentApi;
     private static File httpCacheDirectory = new File(MyApplication.getContext().getCacheDir(), "zhihuCache");
     private static int cacheSize = 10 * 1024 * 1024; // 10 MiB
     private static Cache cache = new Cache(httpCacheDirectory, cacheSize);
@@ -146,5 +147,20 @@ public class ApiManage {
             }
         }
         return imageApi;
+    }
+    public InfoCommentApi getInfoCommentApiService() {
+        if (infoCommentApi == null) {
+//            synchronized (zhihuMonitor) {
+            if (infoCommentApi == null) {
+                infoCommentApi = new Retrofit.Builder()
+                        .baseUrl("http://m2.qiushibaike.com/")
+                        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                        .client(client)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build().create(InfoCommentApi.class);
+//                }
+            }
+        }
+        return infoCommentApi;
     }
 }

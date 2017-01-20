@@ -1,4 +1,4 @@
-package com.example.henryzheng.qiushibaike.C.adapt.list.test;
+package com.example.henryzheng.qiushibaike.C.List.adapt.test;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
-import com.example.henryzheng.qiushibaike.C.myInterface.MyItemClickListener;
+import com.example.henryzheng.qiushibaike.C.i.MyItemClickListener;
 import com.example.henryzheng.qiushibaike.M.Bean.video.Items;
 import com.example.henryzheng.qiushibaike.M.Bean.video.VideoRootBean;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
