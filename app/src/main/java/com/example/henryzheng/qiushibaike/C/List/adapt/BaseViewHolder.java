@@ -16,14 +16,18 @@ import com.example.henryzheng.qiushibaike.R;
 /**
  * Created by henryzheng on 2017/1/18.
  */
-public class BaseViewHolder extends RecyclerView.ViewHolder {
+public class BaseViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    private final BaseListAdapt.OnItemClickListner onItemClickListner;
     View convertView;
     Context context;
 
-    public BaseViewHolder(Context context, int itemType, View itemView) {
+    public BaseViewHolder(Context context, int itemType, View itemView, BaseListAdapt
+            .OnItemClickListner onItemClickListner) {
         super(itemView);
         this.convertView = itemView;
         this.context = context;
+        itemView.setOnClickListener(this);
+        this.onItemClickListner=onItemClickListner;
     }
 
     public void setText(int id, String text) {
@@ -67,4 +71,13 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         view.setVisibility(visability);
     }
 
+    public View getViewById(int id){
+        View view = (View) convertView.findViewById(id);
+        return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        onItemClickListner.onItemClickListner(v,getPosition());
+    }
 }

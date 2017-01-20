@@ -13,12 +13,13 @@ public class Items {
     private String content;
     private int parent_id;
     private boolean liked;
-    private int like_count;
+    private String like_count;
     private String at_infos;
     private int floor;
     private int created_at;
     private int id;
     private User user;
+    public Refer refer;
     public void setContent(String content) {
          this.content = content;
      }
@@ -40,10 +41,10 @@ public class Items {
          return liked;
      }
 
-    public void setLikeCount(int likeCount) {
+    public void setLikeCount(String likeCount) {
          this.like_count = likeCount;
      }
-     public int getLikeCount() {
+     public String getLikeCount() {
          return like_count;
      }
 
@@ -82,4 +83,11 @@ public class Items {
          return user;
      }
 
+    public Refer getRefer() {
+        return refer;
+    }
+
+    public void setRefer(Refer refer) {
+        this.refer = refer;
+    }
 }

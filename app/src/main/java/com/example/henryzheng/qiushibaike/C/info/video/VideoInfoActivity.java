@@ -12,7 +12,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 
-import com.example.henryzheng.qiushibaike.C.info.BaseInfoActivity;
+import com.example.henryzheng.qiushibaike.C.List.i.MainFragmentInterface;
+import com.example.henryzheng.qiushibaike.C.info.base.BaseInfoActivity;
 import com.example.henryzheng.qiushibaike.C.info.adapt.InfoCommentAdapt;
 import com.example.henryzheng.qiushibaike.C.info.p.BaseInfoHandlerPresenter;
 import com.example.henryzheng.qiushibaike.M.Bean.video.Items;
@@ -22,16 +23,17 @@ import com.example.henryzheng.qiushibaike.V.identityView.MyRecycleView;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import butterknife.BindView;
 
-public class VideoInfoActivity extends BaseInfoActivity {
+public class VideoInfoActivity extends BaseInfoActivity implements MainFragmentInterface {
     private MediaPlayer mediaPlayer;
-    @BindView(R.id.surfaceView)
+//    @BindView(R.id.surfaceView)
     public SurfaceView surfaceView;
-    @BindView(R.id.seekBar)
+//    @BindView(R.id.seekBar)
     public SeekBar seekBar;
     @BindView(R.id.recycleView0)
     public MyRecycleView recycleView0;
@@ -44,13 +46,15 @@ public class VideoInfoActivity extends BaseInfoActivity {
     private boolean isChanging = false;
     BaseInfoHandlerPresenter presenter;
     private String id;
+    private int count=0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CCLog.print(Thread.currentThread().getName());
 
         handlerData();
-        initDataAndListener();
+//        initDataAndListener();
         initComment();
     }
 
@@ -61,6 +65,7 @@ public class VideoInfoActivity extends BaseInfoActivity {
         Items items = (Items) intent.getSerializableExtra("data");
         uri = items.getHigh_url();
         id=items.getId();
+        count = items.getComments_count();
     }
 
 
@@ -232,7 +237,7 @@ public class VideoInfoActivity extends BaseInfoActivity {
         mTimer.schedule(mTimerTask, 0, 10);
     }
     private void initComment() {
-        presenter=new BaseInfoHandlerPresenter(this,new InfoCommentAdapt(this),recycleView0,id);
+        presenter=new BaseInfoHandlerPresenter(this,this,new InfoCommentAdapt(this,uri),recycleView0,id,count);
         presenter.loadListData(BaseInfoHandlerPresenter.REFRESH_DATA_TYPE);
     }
     @Override
@@ -245,12 +250,21 @@ public class VideoInfoActivity extends BaseInfoActivity {
     @Override
     protected void onStop() {
         super.onStop();
-//        isChanging=true;
 
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    public void loadNewData(List datas) {
+
+    }
+
+    @Override
+    public void refreshData(List datas) {
+
     }
 }

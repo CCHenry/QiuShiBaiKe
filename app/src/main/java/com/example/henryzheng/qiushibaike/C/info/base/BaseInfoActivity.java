@@ -1,4 +1,4 @@
-package com.example.henryzheng.qiushibaike.C.info;
+package com.example.henryzheng.qiushibaike.C.info.base;
 
 import android.os.Bundle;
 import android.view.View;
