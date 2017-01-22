@@ -1,6 +1,6 @@
-package com.example.henryzheng.qiushibaike.M.Bean.video.api;
+package com.example.henryzheng.qiushibaike.M.bean.video.api;
 
-import com.example.henryzheng.qiushibaike.M.Bean.video.VideoRootBean;
+import com.example.henryzheng.qiushibaike.M.bean.video.VideoRootBean;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;

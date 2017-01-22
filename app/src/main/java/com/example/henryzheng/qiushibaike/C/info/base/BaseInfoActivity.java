@@ -3,7 +3,7 @@ package com.example.henryzheng.qiushibaike.C.info.base;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.henryzheng.qiushibaike.C.Base.BaseActivity;
+import com.example.henryzheng.qiushibaike.C.base.BaseActivity;
 
 public abstract class BaseInfoActivity extends BaseActivity {
 

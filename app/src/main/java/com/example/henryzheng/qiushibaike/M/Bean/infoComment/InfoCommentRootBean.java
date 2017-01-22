@@ -1,7 +1,7 @@
 /**
   * Copyright 2017 aTool.org 
   */
-package com.example.henryzheng.qiushibaike.M.Bean.infoComment;
+package com.example.henryzheng.qiushibaike.M.bean.infoComment;
 import java.util.List;
 
 /**

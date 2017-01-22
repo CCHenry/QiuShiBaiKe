@@ -6,11 +6,11 @@ import android.os.Bundle;
 import android.view.SurfaceView;
 import android.widget.SeekBar;
 
-import com.example.henryzheng.qiushibaike.C.List.i.MainFragmentInterface;
+import com.example.henryzheng.qiushibaike.C.list.i.MainFragmentInterface;
 import com.example.henryzheng.qiushibaike.C.info.adapt.VideoInfoCommentAdapt;
 import com.example.henryzheng.qiushibaike.C.info.base.BaseInfoActivity;
 import com.example.henryzheng.qiushibaike.C.info.p.BaseInfoHandlerPresenter;
-import com.example.henryzheng.qiushibaike.M.Bean.video.Items;
+import com.example.henryzheng.qiushibaike.M.bean.video.Items;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
 import com.example.henryzheng.qiushibaike.R;
 import com.example.henryzheng.qiushibaike.V.identityView.MyRecycleView;

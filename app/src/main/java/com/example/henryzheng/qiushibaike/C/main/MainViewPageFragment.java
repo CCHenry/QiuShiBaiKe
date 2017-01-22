@@ -9,14 +9,13 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.example.henryzheng.qiushibaike.C.Base.BaseFragment;
-import com.example.henryzheng.qiushibaike.C.List.BaseListFragment;
-import com.example.henryzheng.qiushibaike.C.List.adapt.ImageListAdapt;
-import com.example.henryzheng.qiushibaike.C.List.adapt.NewsListAdapt;
-import com.example.henryzheng.qiushibaike.C.List.adapt.TextListAdapt;
-import com.example.henryzheng.qiushibaike.C.List.adapt.VideoListAdapt;
+import com.example.henryzheng.qiushibaike.C.base.BaseFragment;
+import com.example.henryzheng.qiushibaike.C.list.BaseListFragment;
+import com.example.henryzheng.qiushibaike.C.list.adapt.ImageListAdapt;
+import com.example.henryzheng.qiushibaike.C.list.adapt.NewsListAdapt;
+import com.example.henryzheng.qiushibaike.C.list.adapt.TextListAdapt;
+import com.example.henryzheng.qiushibaike.C.list.adapt.VideoListAdapt;
 import com.example.henryzheng.qiushibaike.R;
 
 import java.util.ArrayList;
@@ -30,8 +29,7 @@ import butterknife.BindView;
 public class MainViewPageFragment extends BaseFragment {
     @BindView(R.id.viewPage0)
     ViewPager viewPage0;
-    @BindView(R.id.textView0)
-    TextView textView0;
+
     List<Fragment> fragments=new ArrayList<>();
     @Override
     public int getContentViewId() {

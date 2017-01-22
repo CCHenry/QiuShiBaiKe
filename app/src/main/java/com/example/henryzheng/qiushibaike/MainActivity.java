@@ -3,8 +3,8 @@ package com.example.henryzheng.qiushibaike;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.example.henryzheng.qiushibaike.C.Base.BaseActivity;
-import com.example.henryzheng.qiushibaike.M.Bean.test.RootListBean;
+import com.example.henryzheng.qiushibaike.C.base.BaseActivity;
+import com.example.henryzheng.qiushibaike.M.bean.test.RootListBean;
 import com.example.henryzheng.qiushibaike.M.utils.ApiManage;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
 

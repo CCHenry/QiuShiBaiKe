@@ -2,10 +2,21 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:layout_margin="@dimen/margin0"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
-              tools:context=".C.List.BaseListFragment">
-
+              tools:context=".C.list.BaseListFragment">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-15dip"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="13dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/h0"
@@ -31,52 +42,66 @@
         android:layout_height="wrap_content"
         android:text="asdas"
         android:textSize="@dimen/sp0"
+        android:lineSpacingExtra="@dimen/margin1"
         android:id="@+id/textView1"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin1"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@id/textView2"
-
+            android:textSize="@dimen/sp4"
+            android:textColor="@color/gray"
             android:text="好笑 "/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="284"
-            android:textSize="@dimen/sp1"/>
+            android:textSize="@dimen/sp4"
+            android:textColor="@color/gray"/>
         <TextView
+            android:textSize="@dimen/sp4"
+            android:textColor="@color/gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" ·评论"/>
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="33"
             android:id="@id/textView3"
-            android:textSize="@dimen/sp1"/>
+            android:textSize="@dimen/sp4"
+            android:textColor="@color/gray"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" ·分享 "/>
+            android:text=" ·分享 "
+            android:textSize="@dimen/sp4"
+            android:textColor="@color/gray"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1"
             android:id="@id/textView4"
-            android:textSize="@dimen/sp1"/>
+            android:textSize="@dimen/sp4"
+            android:textColor="@color/gray"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="22"
             android:id="@id/textView5"
-            android:textSize="@dimen/sp1"/>
+            android:textSize="@dimen/sp4"
+            android:textColor="@color/gray"/>
     </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>

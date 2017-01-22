@@ -3,7 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="size0">40dp</dimen>
-    <dimen name="h0">60dp</dimen>
+    <dimen name="h0">45dp</dimen>
     <dimen name="h1">50dp</dimen>
     <dimen name="h2">50dp</dimen><!--item news 高度-->
     <dimen name="h3">30dp</dimen><!--item news 高度-->
@@ -11,9 +11,13 @@
     <dimen name="sp0">15sp</dimen>
     <dimen name="sp1">13sp</dimen>
     <dimen name="sp2">17sp</dimen>
+    <dimen name="sp4">12sp</dimen><!--list item textSize-->
 
     <dimen name="margin0">10dip</dimen>
     <dimen name="margin1">6dip</dimen>
+    <dimen name="margin2">6dip</dimen>
+    <dimen name="margin3">1dip</dimen>
+
     <dimen name="size1">12dip </dimen>
 
 </resources>

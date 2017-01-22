@@ -1,6 +1,6 @@
-package com.example.henryzheng.qiushibaike.M.Bean.image.api;
+package com.example.henryzheng.qiushibaike.M.bean.image.api;
 
-import com.example.henryzheng.qiushibaike.M.Bean.image.ImageRootBean;
+import com.example.henryzheng.qiushibaike.M.bean.image.ImageRootBean;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;

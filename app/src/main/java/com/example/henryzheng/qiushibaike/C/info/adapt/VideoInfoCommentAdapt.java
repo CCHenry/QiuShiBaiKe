@@ -9,9 +9,9 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.SeekBar;
 
-import com.example.henryzheng.qiushibaike.C.List.adapt.BaseListAdapt;
-import com.example.henryzheng.qiushibaike.C.List.adapt.BaseViewHolder;
-import com.example.henryzheng.qiushibaike.M.Bean.infoComment.Items;
+import com.example.henryzheng.qiushibaike.C.list.adapt.BaseListAdapt;
+import com.example.henryzheng.qiushibaike.C.list.adapt.BaseViewHolder;
+import com.example.henryzheng.qiushibaike.M.bean.infoComment.Items;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
 import com.example.henryzheng.qiushibaike.M.utils.DensityUtils;
 import com.example.henryzheng.qiushibaike.R;
@@ -31,12 +31,12 @@ public class VideoInfoCommentAdapt extends BaseListAdapt {
     private TimerTask mTimerTask;
     private Timer mTimer;
     private boolean isChanging = false;
-   com.example.henryzheng.qiushibaike.M.Bean.video.Items headItemData;
+   com.example.henryzheng.qiushibaike.M.bean.video.Items headItemData;
 
     /**
      * @param context //上下文
      */
-    public VideoInfoCommentAdapt(Context context, com.example.henryzheng.qiushibaike.M.Bean.video.Items headItemData) {
+    public VideoInfoCommentAdapt(Context context, com.example.henryzheng.qiushibaike.M.bean.video.Items headItemData) {
         super(context);
         this.uri =headItemData.getHigh_url();
         this.headItemData=headItemData;

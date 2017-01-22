@@ -1,6 +1,6 @@
-package com.example.henryzheng.qiushibaike.M.Bean.news.api;
+package com.example.henryzheng.qiushibaike.M.bean.news.api;
 
-import com.example.henryzheng.qiushibaike.M.Bean.news.NewsRootBean;
+import com.example.henryzheng.qiushibaike.M.bean.news.NewsRootBean;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;

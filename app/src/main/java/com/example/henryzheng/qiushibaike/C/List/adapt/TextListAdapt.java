@@ -1,8 +1,8 @@
-package com.example.henryzheng.qiushibaike.C.List.adapt;
+package com.example.henryzheng.qiushibaike.C.list.adapt;
 
 import android.content.Context;
 
-import com.example.henryzheng.qiushibaike.M.Bean.text.Items;
+import com.example.henryzheng.qiushibaike.M.bean.text.Items;
 import com.example.henryzheng.qiushibaike.R;
 
 /**

@@ -6,9 +6,9 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
-import com.example.henryzheng.qiushibaike.C.List.adapt.BaseListAdapt;
-import com.example.henryzheng.qiushibaike.C.List.i.MainFragmentInterface;
-import com.example.henryzheng.qiushibaike.M.Bean.infoComment.InfoCommentRootBean;
+import com.example.henryzheng.qiushibaike.C.list.adapt.BaseListAdapt;
+import com.example.henryzheng.qiushibaike.C.list.i.MainFragmentInterface;
+import com.example.henryzheng.qiushibaike.M.bean.infoComment.InfoCommentRootBean;
 import com.example.henryzheng.qiushibaike.M.utils.ApiManage;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
 import com.example.henryzheng.qiushibaike.V.identityView.MyRecycleView;

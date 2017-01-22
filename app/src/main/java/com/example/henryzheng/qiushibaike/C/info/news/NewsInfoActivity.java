@@ -7,7 +7,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.example.henryzheng.qiushibaike.C.info.base.BaseInfoActivity;
-import com.example.henryzheng.qiushibaike.M.Bean.news.Data;
+import com.example.henryzheng.qiushibaike.M.bean.news.Data;
 import com.example.henryzheng.qiushibaike.R;
 
 import butterknife.BindView;

@@ -1,17 +1,17 @@
-package com.example.henryzheng.qiushibaike.C.List.p;
+package com.example.henryzheng.qiushibaike.C.list.p;
 
 import android.media.Image;
 
-import com.example.henryzheng.qiushibaike.C.List.i.MainFragmentInterface;
-import com.example.henryzheng.qiushibaike.C.List.adapt.BaseListAdapt;
-import com.example.henryzheng.qiushibaike.C.List.adapt.ImageListAdapt;
-import com.example.henryzheng.qiushibaike.C.List.adapt.NewsListAdapt;
-import com.example.henryzheng.qiushibaike.C.List.adapt.TextListAdapt;
-import com.example.henryzheng.qiushibaike.C.List.adapt.VideoListAdapt;
-import com.example.henryzheng.qiushibaike.M.Bean.image.ImageRootBean;
-import com.example.henryzheng.qiushibaike.M.Bean.news.NewsRootBean;
-import com.example.henryzheng.qiushibaike.M.Bean.text.TextRootBean;
-import com.example.henryzheng.qiushibaike.M.Bean.video.VideoRootBean;
+import com.example.henryzheng.qiushibaike.C.list.i.MainFragmentInterface;
+import com.example.henryzheng.qiushibaike.C.list.adapt.BaseListAdapt;
+import com.example.henryzheng.qiushibaike.C.list.adapt.ImageListAdapt;
+import com.example.henryzheng.qiushibaike.C.list.adapt.NewsListAdapt;
+import com.example.henryzheng.qiushibaike.C.list.adapt.TextListAdapt;
+import com.example.henryzheng.qiushibaike.C.list.adapt.VideoListAdapt;
+import com.example.henryzheng.qiushibaike.M.bean.image.ImageRootBean;
+import com.example.henryzheng.qiushibaike.M.bean.news.NewsRootBean;
+import com.example.henryzheng.qiushibaike.M.bean.text.TextRootBean;
+import com.example.henryzheng.qiushibaike.M.bean.video.VideoRootBean;
 import com.example.henryzheng.qiushibaike.M.utils.ApiManage;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
 
@@ -171,19 +171,19 @@ public class MainFragmentsPresenter {
                     }
                 });
     }
-    /**
-     * 处理图片和展示
-     *
-     * @param load_data_type
-     * @param result
-     */
-    private void handlerAndShowData(final int load_data_type, VideoRootBean result) {
-        if (load_data_type == LOAD_MORE_TYPE) {
-            mainFragmentInterface.loadNewData(result.getItems());
-
-        } else if (load_data_type == REFRESH_DATA_TYPE)
-            mainFragmentInterface.refreshData(result.getItems());
-    }
+//    /**
+//     * 处理图片和展示
+//     *
+//     * @param load_data_type
+//     * @param result
+//     */
+//    private void handlerAndShowData(final int load_data_type, VideoRootBean result) {
+//        if (load_data_type == LOAD_MORE_TYPE) {
+//            mainFragmentInterface.loadNewData(result.getItems());
+//
+//        } else if (load_data_type == REFRESH_DATA_TYPE)
+//            mainFragmentInterface.refreshData(result.getItems());
+//    }
 
     /**
      * 根据刷新和加载处理page

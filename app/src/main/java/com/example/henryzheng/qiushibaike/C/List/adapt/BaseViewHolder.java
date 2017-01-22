@@ -1,4 +1,4 @@
-package com.example.henryzheng.qiushibaike.C.List.adapt;
+package com.example.henryzheng.qiushibaike.C.list.adapt;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -50,7 +50,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     public void setImageResource(int id, String url, boolean isCircle) {
         final ImageView iv = (ImageView) convertView.findViewById(id);
         if (isCircle) {
-            Glide.with(context).load(url).asBitmap().fitCenter().into(new BitmapImageViewTarget
+            Glide.with(context).load(url).asBitmap().into(new BitmapImageViewTarget
                     (iv) {
                 @Override
                 protected void setResource(Bitmap resource) {
@@ -63,6 +63,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder implements View.OnCl
         } else {
             Glide.with(context).load(url).animate(R.anim.item_alpha_in).crossFade
                     (1000).into(iv);
+            iv.requestLayout();
         }
     }
 

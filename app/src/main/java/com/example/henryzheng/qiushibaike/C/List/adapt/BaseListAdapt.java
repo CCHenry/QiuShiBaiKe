@@ -1,4 +1,4 @@
-package com.example.henryzheng.qiushibaike.C.List.adapt;
+package com.example.henryzheng.qiushibaike.C.list.adapt;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -172,6 +172,7 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
     public void loadMoreData(List<T> data) {
         for (int i = 0; i < data.size(); i++) {
             this.data.add(data.get(i));
+
         }
         notifyDataSetChanged();
         CCLog.print("loadMoreData:" + this.data.size());

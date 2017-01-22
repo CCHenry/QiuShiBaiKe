@@ -1,11 +1,11 @@
 package com.example.henryzheng.qiushibaike.M.utils;
 
-import com.example.henryzheng.qiushibaike.M.Bean.infoComment.api.InfoCommentApi;
-import com.example.henryzheng.qiushibaike.M.Bean.test.api.ZhuanXiangApi;
-import com.example.henryzheng.qiushibaike.M.Bean.image.api.ImageApi;
-import com.example.henryzheng.qiushibaike.M.Bean.news.api.NewsApi;
-import com.example.henryzheng.qiushibaike.M.Bean.text.api.TextApi;
-import com.example.henryzheng.qiushibaike.M.Bean.video.api.VideoApi;
+import com.example.henryzheng.qiushibaike.M.bean.infoComment.api.InfoCommentApi;
+import com.example.henryzheng.qiushibaike.M.bean.test.api.ZhuanXiangApi;
+import com.example.henryzheng.qiushibaike.M.bean.image.api.ImageApi;
+import com.example.henryzheng.qiushibaike.M.bean.news.api.NewsApi;
+import com.example.henryzheng.qiushibaike.M.bean.text.api.TextApi;
+import com.example.henryzheng.qiushibaike.M.bean.video.api.VideoApi;
 import com.example.henryzheng.qiushibaike.MyApplication;
 
 import java.io.File;

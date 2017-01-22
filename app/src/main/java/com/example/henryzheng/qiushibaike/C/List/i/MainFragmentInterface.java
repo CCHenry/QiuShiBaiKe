@@ -1,4 +1,4 @@
-package com.example.henryzheng.qiushibaike.C.List.i;
+package com.example.henryzheng.qiushibaike.C.list.i;
 
 import java.util.List;
 

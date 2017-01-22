@@ -1,9 +1,9 @@
-package com.example.henryzheng.qiushibaike.C.List.adapt;
+package com.example.henryzheng.qiushibaike.C.list.adapt;
 
 import android.content.Context;
 import android.view.View;
 
-import com.example.henryzheng.qiushibaike.M.Bean.news.Data;
+import com.example.henryzheng.qiushibaike.M.bean.news.Data;
 import com.example.henryzheng.qiushibaike.M.utils.DensityUtils;
 import com.example.henryzheng.qiushibaike.R;
 
@@ -24,7 +24,7 @@ public class NewsListAdapt extends BaseListAdapt {
         super(context);
         this.context=context;
          width=(int) (DensityUtils.getSceenWidth(context)/3-context.getResources().getDimension(R.dimen.margin1)*2);
-         height= (int) (DensityUtils.getSceenWidth(context)/3*0.6-context.getResources().getDimension(R.dimen.margin1)*2);
+         height= (int) (DensityUtils.getSceenWidth(context)/3*0.7-context.getResources().getDimension(R.dimen.margin1)*2);
     }
 
     @Override

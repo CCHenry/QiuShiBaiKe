@@ -1,7 +1,7 @@
 /**
   * Copyright 2017 aTool.org 
   */
-package com.example.henryzheng.qiushibaike.M.Bean.video;
+package com.example.henryzheng.qiushibaike.M.bean.video;
 
 import java.io.Serializable;
 

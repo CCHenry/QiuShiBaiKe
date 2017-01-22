@@ -1,6 +1,6 @@
-package com.example.henryzheng.qiushibaike.M.Bean.infoComment.api;
+package com.example.henryzheng.qiushibaike.M.bean.infoComment.api;
 
-import com.example.henryzheng.qiushibaike.M.Bean.infoComment.InfoCommentRootBean;
+import com.example.henryzheng.qiushibaike.M.bean.infoComment.InfoCommentRootBean;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;

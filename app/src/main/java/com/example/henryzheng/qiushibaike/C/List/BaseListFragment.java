@@ -1,4 +1,4 @@
-package com.example.henryzheng.qiushibaike.C.List;
+package com.example.henryzheng.qiushibaike.C.list;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,12 +7,12 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
-import com.example.henryzheng.qiushibaike.C.Base.BaseFragment;
-import com.example.henryzheng.qiushibaike.C.List.adapt.BaseListAdapt;
-import com.example.henryzheng.qiushibaike.C.List.adapt.NewsListAdapt;
-import com.example.henryzheng.qiushibaike.C.List.adapt.VideoListAdapt;
-import com.example.henryzheng.qiushibaike.C.List.i.MainFragmentInterface;
-import com.example.henryzheng.qiushibaike.C.List.p.MainFragmentsPresenter;
+import com.example.henryzheng.qiushibaike.C.base.BaseFragment;
+import com.example.henryzheng.qiushibaike.C.list.adapt.BaseListAdapt;
+import com.example.henryzheng.qiushibaike.C.list.adapt.NewsListAdapt;
+import com.example.henryzheng.qiushibaike.C.list.adapt.VideoListAdapt;
+import com.example.henryzheng.qiushibaike.C.list.i.MainFragmentInterface;
+import com.example.henryzheng.qiushibaike.C.list.p.MainFragmentsPresenter;
 import com.example.henryzheng.qiushibaike.C.info.news.NewsInfoActivity;
 import com.example.henryzheng.qiushibaike.C.info.video.VideoInfoActivity;
 import com.example.henryzheng.qiushibaike.M.listModel.BaseListModel;

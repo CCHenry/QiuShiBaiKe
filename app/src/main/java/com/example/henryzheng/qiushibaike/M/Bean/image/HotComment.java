@@ -1,7 +1,7 @@
 /**
   * Copyright 2017 aTool.org 
   */
-package com.example.henryzheng.qiushibaike.M.Bean.image;
+package com.example.henryzheng.qiushibaike.M.bean.image;
 /**
  * Auto-generated: 2017-01-18 15:28:26
  *

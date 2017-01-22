@@ -1,4 +1,4 @@
-package com.example.henryzheng.qiushibaike.M.Bean.infoComment;
+package com.example.henryzheng.qiushibaike.M.bean.infoComment;
 
 /**
  * Created by henryzheng on 2017/1/20.
