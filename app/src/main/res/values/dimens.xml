@@ -7,6 +7,7 @@
     <dimen name="h1">50dp</dimen>
     <dimen name="h2">50dp</dimen><!--item news 高度-->
     <dimen name="h3">30dp</dimen><!--item news 高度-->
+    <dimen name="h4">0.3dp</dimen><!--item news 高度-->
 
     <dimen name="sp0">15sp</dimen>
     <dimen name="sp1">13sp</dimen>
@@ -17,6 +18,9 @@
     <dimen name="margin1">6dip</dimen>
     <dimen name="margin2">6dip</dimen>
     <dimen name="margin3">1dip</dimen>
+    <dimen name="margin5">3dip</dimen>
+
+    <dimen name="margin4">20dip</dimen>
 
     <dimen name="size1">12dip </dimen>
 

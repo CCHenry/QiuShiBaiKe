@@ -9,9 +9,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.SeekBar;
 
-import com.example.henryzheng.qiushibaike.C.list.adapt.BaseListAdapt;
 import com.example.henryzheng.qiushibaike.C.list.adapt.BaseViewHolder;
-import com.example.henryzheng.qiushibaike.M.bean.infoComment.Items;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
 import com.example.henryzheng.qiushibaike.M.utils.DensityUtils;
 import com.example.henryzheng.qiushibaike.R;
@@ -21,9 +19,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * Created by henryzheng on 2017/1/20.
+ * Created by henryzheng on 2017/1/22.
  */
-public class VideoInfoCommentAdapt extends BaseListAdapt {
+public class VideoInfoAdapt extends BaseInfoCommentAdapt {
     private SurfaceView surfaceView;
     private SeekBar seekBar;
     private MediaPlayer mediaPlayer;
@@ -31,48 +29,15 @@ public class VideoInfoCommentAdapt extends BaseListAdapt {
     private TimerTask mTimerTask;
     private Timer mTimer;
     private boolean isChanging = false;
-   com.example.henryzheng.qiushibaike.M.bean.video.Items headItemData;
-
+    com.example.henryzheng.qiushibaike.M.bean.video.Items headItemData;
     /**
      * @param context //上下文
      */
-    public VideoInfoCommentAdapt(Context context, com.example.henryzheng.qiushibaike.M.bean.video.Items headItemData) {
+    public VideoInfoAdapt(Context context, com.example.henryzheng.qiushibaike.M.bean.video.Items headItemData) {
         super(context);
         this.uri =headItemData.getHigh_url();
         this.headItemData=headItemData;
     }
-
-    @Override
-    protected void convert(BaseViewHolder holder, Object bean) {
-        Items data = (Items) bean;
-        if (data.getUser() != null)
-            if (data.getUser().getLogin() != null) {
-                holder.setText(R.id.textView0, data.getUser().getLogin());
-                holder.setText(R.id.textView1, data.getLikeCount());
-                holder.setText(R.id.textView2, data.getContent());
-                holder.setImageResource(R.id.imageView0, "http:" + data.getUser().getThumb(), true);
-                if (data.getRefer() != null) {
-                    if (data.getRefer().getUser() != null && data.getRefer().getUser().getLogin() !=
-                            null) {
-                        holder.setText(R.id.textView3, data.getRefer().getUser().getLogin());
-                        holder.setText(R.id.textView4, data.getRefer().getContent());
-                    }
-                } else {
-                    holder.setVisability(R.id.linearLayout0, View.GONE);
-                }
-            }
-
-
-    }
-
-    @Override
-    protected int getLayoutItemLayout() {
-        return R.layout.recycle_view_info_comment_item;
-    }
-
-
-
-
     @Override
     public void convertByBottom(BaseViewHolder holder) {
         super.convertByBottom(holder);
@@ -93,12 +58,10 @@ public class VideoInfoCommentAdapt extends BaseListAdapt {
     private void initView(BaseViewHolder holder) {
         surfaceView = (SurfaceView) holder.getViewById(R.id.surfaceView);
         seekBar = (SeekBar) holder.getViewById(R.id.seekBar);
-
         int lw = DensityUtils.getSceenWidth(context);
         float vWidth=lw*headItemData.getImage_size().getM().get(0);
         float vHeight=lw*headItemData.getImage_size().getM().get(1);
         int lh= (int) (lw/vWidth*vHeight);
-
         holder.setLayoutParams(R.id.surfaceView,lw,lh);
 
 

@@ -7,7 +7,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.example.henryzheng.qiushibaike.C.list.adapt.BaseListAdapt;
-import com.example.henryzheng.qiushibaike.C.list.i.MainFragmentInterface;
 import com.example.henryzheng.qiushibaike.M.bean.infoComment.InfoCommentRootBean;
 import com.example.henryzheng.qiushibaike.M.utils.ApiManage;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
@@ -32,18 +31,16 @@ public class BaseInfoHandlerPresenter {
     private List<Image> images;
     BaseListAdapt adapt;
     private String id;
-    MainFragmentInterface mainFragmentInterface;
 
     /**
      */
 
-    public BaseInfoHandlerPresenter(Context context, MainFragmentInterface mainFragmentInterface,
+    public BaseInfoHandlerPresenter(Context context,
                                     BaseListAdapt
                                             recycleAdapter, MyRecycleView recyclerView, String id, int count) {
         this.adapt = recycleAdapter;
         this.context = context;
         this.id = id;
-        this.mainFragmentInterface = mainFragmentInterface;
         LinearLayoutManager lin = new LinearLayoutManager(context);
         this.recycleView=recyclerView;
         recycleView.setLayoutManager(lin);

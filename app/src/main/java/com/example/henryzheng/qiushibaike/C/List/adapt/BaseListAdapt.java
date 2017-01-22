@@ -128,7 +128,7 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
 
     @Override
     public int getItemCount() {
-        if (data.size() > 0) {
+         if (data.size() > 0) {
             return data.size() + 2;
         } else
             return 2;
@@ -170,11 +170,12 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
      * @param data
      */
     public void loadMoreData(List<T> data) {
+        int start=this.data.size()+2;
         for (int i = 0; i < data.size(); i++) {
             this.data.add(data.get(i));
-
+            notifyItemInserted(start);
         }
-        notifyDataSetChanged();
+
         CCLog.print("loadMoreData:" + this.data.size());
     }
 
