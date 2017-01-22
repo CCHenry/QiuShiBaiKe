@@ -130,7 +130,7 @@ public class VideoTestListAdapt extends RecyclerView.Adapter<VideoTestListAdapt.
 
                 holder.textView0.setText(datas.get(position-1).getUser().getLogin());
                 holder.textView1.setText(datas.get(position-1).getContent());
-                int width=DensityUtils.geSceenWidth(_context);
+                int width=DensityUtils.getSceenWidth(_context);
                 holder.imageView1.getLayoutParams().width=width;
                 holder.imageView1.getLayoutParams().height= width;
                 holder.imageView1.requestLayout();

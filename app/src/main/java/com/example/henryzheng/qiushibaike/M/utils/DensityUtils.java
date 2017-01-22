@@ -66,14 +66,14 @@ public class DensityUtils {
      * @return
      */
 
-    public static int   geSceenWidth(Context context){
+    public static int getSceenWidth(Context context){
         WindowManager wm = (WindowManager) context
                 .getSystemService(Context.WINDOW_SERVICE);
 
 
         return wm.getDefaultDisplay().getWidth();
     }
-    public static int   geSceenHeight(Context context){
+    public static int getSceenHeight(Context context){
         WindowManager wm = (WindowManager) context
                 .getSystemService(Context.WINDOW_SERVICE);
 

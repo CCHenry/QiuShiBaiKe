@@ -131,7 +131,7 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
         if (data.size() > 0) {
             return data.size() + 2;
         } else
-            return 0;
+            return 2;
 
     }
 

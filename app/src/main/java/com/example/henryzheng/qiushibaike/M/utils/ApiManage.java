@@ -67,6 +67,7 @@ public class ApiManage {
             synchronized (ApiManage.class) {
                 if (apiManage == null) {
                     apiManage = new ApiManage();
+                    return apiManage;
                 }
             }
         }

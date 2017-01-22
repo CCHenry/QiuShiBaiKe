@@ -86,6 +86,7 @@ public class BaseInfoHandlerPresenter {
     private void startInfoCommentHandle(final int load_data_type) {
 
             int onceLoadCommentCount=((count-adapt.getData().size())>=30)?30:(count-adapt.getData().size());
+        if (onceLoadCommentCount>0){
         ApiManage.getInstence().getInfoCommentApiService().getLastDaily(id, page,
                 onceLoadCommentCount, 0)
                 .subscribeOn(Schedulers.io())
@@ -113,7 +114,9 @@ public class BaseInfoHandlerPresenter {
                             }
                         }
                     }
-                });
+                });}else{
+            adapt.notifyDataSetChanged();
+        }
     }
 
 

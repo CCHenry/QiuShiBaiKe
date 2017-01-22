@@ -22,8 +22,8 @@ public class ImageListAdapt extends BaseListAdapt {
     public ImageListAdapt(Context context) {
         super(context);
         this.context=context;
-         width=(int) (DensityUtils.geSceenWidth(context));
-         height= (int) (DensityUtils.geSceenHeight(context));
+         width=(int) (DensityUtils.getSceenWidth(context));
+         height= (int) (DensityUtils.getSceenHeight(context));
     }
 
     @Override

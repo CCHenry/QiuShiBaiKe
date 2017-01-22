@@ -9,56 +9,12 @@
     android:orientation="vertical"
     tools:context="com.example.henryzheng.qiushibaike.C.info.video.VideoInfoActivity">
 
-    <!--<com.example.henryzheng.qiushibaike.V.identityView.MyScrollview-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="0dp"-->
-        <!--android:layout_weight="1"-->
-        <!--android:scrollbars="none"-->
-        <!--&gt;-->
-
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:orientation="vertical">-->
-            <!--<include-->
-                <!--layout="@layout/layout_action_bar"/>-->
-
-            <!--<RelativeLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--&gt;-->
-
-                <!--<LinearLayout-->
-                    <!--android:id="@+id/lin1"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:orientation="vertical">-->
-
-                    <!--<SurfaceView-->
-                        <!--android:id="@+id/surfaceView"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="500dip"/>-->
-
-                    <!--<SeekBar-->
-                        <!--android:id="@+id/seekBar"-->
-                        <!--android:layout_width="fill_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_margin="@dimen/margin0"/>-->
                     <com.example.henryzheng.qiushibaike.V.identityView.MyRecycleView
                         android:id="@id/recycleView0"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                     </com.example.henryzheng.qiushibaike.V.identityView.MyRecycleView>
-
-                <!--</LinearLayout>-->
-
-            <!--</RelativeLayout>-->
-
-
-        <!--</LinearLayout>-->
-
-    <!--</com.example.henryzheng.qiushibaike.V.identityView.MyScrollview>-->
 
 
 </LinearLayout>

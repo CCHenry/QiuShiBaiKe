@@ -1,21 +1,19 @@
 package com.example.henryzheng.qiushibaike.C.info.adapt;
 
-import android.app.Activity;
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.SeekBar;
 
 import com.example.henryzheng.qiushibaike.C.List.adapt.BaseListAdapt;
 import com.example.henryzheng.qiushibaike.C.List.adapt.BaseViewHolder;
 import com.example.henryzheng.qiushibaike.M.Bean.infoComment.Items;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
+import com.example.henryzheng.qiushibaike.M.utils.DensityUtils;
 import com.example.henryzheng.qiushibaike.R;
 
 import java.io.IOException;
@@ -25,7 +23,7 @@ import java.util.TimerTask;
 /**
  * Created by henryzheng on 2017/1/20.
  */
-public class InfoCommentAdapt extends BaseListAdapt {
+public class VideoInfoCommentAdapt extends BaseListAdapt {
     private SurfaceView surfaceView;
     private SeekBar seekBar;
     private MediaPlayer mediaPlayer;
@@ -33,13 +31,15 @@ public class InfoCommentAdapt extends BaseListAdapt {
     private TimerTask mTimerTask;
     private Timer mTimer;
     private boolean isChanging = false;
+   com.example.henryzheng.qiushibaike.M.Bean.video.Items headItemData;
 
     /**
      * @param context //上下文
      */
-    public InfoCommentAdapt(Context context, String uri) {
+    public VideoInfoCommentAdapt(Context context, com.example.henryzheng.qiushibaike.M.Bean.video.Items headItemData) {
         super(context);
-        this.uri = uri;
+        this.uri =headItemData.getHigh_url();
+        this.headItemData=headItemData;
     }
 
     @Override
@@ -50,16 +50,19 @@ public class InfoCommentAdapt extends BaseListAdapt {
                 holder.setText(R.id.textView0, data.getUser().getLogin());
                 holder.setText(R.id.textView1, data.getLikeCount());
                 holder.setText(R.id.textView2, data.getContent());
-                holder.setImageResource(R.id.imageView0,"http:"+data.getUser().getThumb(),true);
-                if (data.getRefer()!=null){
-                if (data.getRefer().getUser() != null && data.getRefer().getUser().getLogin() !=
-                        null) {
-                    holder.setText(R.id.textView3, data.getRefer().getUser().getLogin());
-                    holder.setText(R.id.textView4, data.getRefer().getContent());
-                }}else{
+                holder.setImageResource(R.id.imageView0, "http:" + data.getUser().getThumb(), true);
+                if (data.getRefer() != null) {
+                    if (data.getRefer().getUser() != null && data.getRefer().getUser().getLogin() !=
+                            null) {
+                        holder.setText(R.id.textView3, data.getRefer().getUser().getLogin());
+                        holder.setText(R.id.textView4, data.getRefer().getContent());
+                    }
+                } else {
                     holder.setVisability(R.id.linearLayout0, View.GONE);
                 }
             }
+
+
     }
 
     @Override
@@ -68,24 +71,39 @@ public class InfoCommentAdapt extends BaseListAdapt {
     }
 
 
-    @Override
-    public int getHeadViewById() {
-        return R.layout.activity_video_info_head;
-    }
 
-    @Override
-    public void convertByHead(BaseViewHolder holder) {
-        super.convertByHead(holder);
-        surfaceView = (SurfaceView) holder.getViewById(R.id.surfaceView);
-        seekBar = (SeekBar) holder.getViewById(R.id.seekBar);
-        initDataAndListener();
-    }
 
     @Override
     public void convertByBottom(BaseViewHolder holder) {
         super.convertByBottom(holder);
         holder.setVisability(R.id.relativeLayout0, View.GONE);
     }
+
+    @Override
+    public int getHeadViewById() {
+        return R.layout.activity_video_info_head;
+    }
+    @Override
+    public void convertByHead(BaseViewHolder holder) {
+        super.convertByHead(holder);
+        initView(holder);
+        initDataAndListener();
+    }
+
+    private void initView(BaseViewHolder holder) {
+        surfaceView = (SurfaceView) holder.getViewById(R.id.surfaceView);
+        seekBar = (SeekBar) holder.getViewById(R.id.seekBar);
+
+        int lw = DensityUtils.getSceenWidth(context);
+        float vWidth=lw*headItemData.getImage_size().getM().get(0);
+        float vHeight=lw*headItemData.getImage_size().getM().get(1);
+        int lh= (int) (lw/vWidth*vHeight);
+
+        holder.setLayoutParams(R.id.surfaceView,lw,lh);
+
+
+    }
+
 
     private void initDataAndListener() {
         mediaPlayer = new MediaPlayer();
@@ -103,34 +121,7 @@ public class InfoCommentAdapt extends BaseListAdapt {
         mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
-                //准备完成后播放
-                // 首先取得video的宽和高
-                int vWidth = mediaPlayer.getVideoWidth();
-                int vHeight = mediaPlayer.getVideoHeight();
                 seekBar.setMax(mediaPlayer.getDuration());
-
-                // 该LinearLayout的父容器 android:orientation="vertical" 必须
-                LinearLayout linearLayout = (LinearLayout) ((Activity) context).findViewById(R.id
-                        .lin1);
-                int lw = linearLayout.getWidth();
-                int lh = linearLayout.getHeight();
-
-//                if (vWidth > lw || vHeight > lh) {
-                // 如果video的宽或者高超出了当前屏幕的大小，则要进行缩放
-                float wRatio = (float) vWidth / (float) lw;
-                float hRatio = (float) vHeight / (float) lh;
-
-                // 选择大的一个进行缩放
-                float ratio = Math.max(wRatio, hRatio);
-                vWidth = (int) Math.ceil((float) vWidth / ratio);
-                vHeight = (int) Math.ceil((float) vHeight / ratio);
-
-                // 设置surfaceView的布局参数
-                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(vWidth, vHeight);
-                lp.gravity = Gravity.CENTER;
-                surfaceView.setLayoutParams(lp);
-//                }
-                // 然后开始播放视频
 
                 mediaPlayer.start();
             }
@@ -150,7 +141,6 @@ public class InfoCommentAdapt extends BaseListAdapt {
                 try {
                     //设置视屏文件图像的显示参数
                     mediaPlayer.setDisplay(holder);
-
                     //file.getAbsolutePath()本地视频
                     //uri 网络视频
                     mediaPlayer.setDataSource(context, Uri.parse(uri));
@@ -161,6 +151,9 @@ public class InfoCommentAdapt extends BaseListAdapt {
                     mediaPlayer.prepareAsync();
                 } catch (IOException e) {
                     e.printStackTrace();
+                }catch (IllegalStateException e){
+                    e.printStackTrace();
+
                 }
             }
 

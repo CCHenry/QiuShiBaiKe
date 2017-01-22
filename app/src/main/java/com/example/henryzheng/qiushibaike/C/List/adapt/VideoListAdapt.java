@@ -3,6 +3,7 @@ package com.example.henryzheng.qiushibaike.C.List.adapt;
 import android.content.Context;
 
 import com.example.henryzheng.qiushibaike.M.Bean.video.Items;
+import com.example.henryzheng.qiushibaike.M.utils.DensityUtils;
 import com.example.henryzheng.qiushibaike.R;
 
 /**
@@ -23,9 +24,15 @@ public class VideoListAdapt extends BaseListAdapt {
         if (data.getUser() != null) {
             if(data.getUser().getLogin() != null)
             holder.setText(R.id.textView0, data.getUser().getLogin());
+
             holder.setImageResource(R.id.imageView0, "http:" + data.getUser().getThumb(), true);
         }
         holder.setText(R.id.textView1, data.getContent());
+        int lw = DensityUtils.getSceenWidth(context);
+        float vWidth=lw*data.getImage_size().getM().get(0);
+        float vHeight=lw*data.getImage_size().getM().get(1);
+        int lh= (int) (lw/vWidth*vHeight);
+        holder.setLayoutParams(R.id.imageView1,lw,lh);
         holder.setImageResource(R.id.imageView1, data.getPic_url(), false);
         holder.setText(R.id.textView3, String.valueOf(data.getComments_count()));
     }

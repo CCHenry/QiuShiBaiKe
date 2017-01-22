@@ -23,8 +23,8 @@ public class NewsListAdapt extends BaseListAdapt {
     public NewsListAdapt(Context context) {
         super(context);
         this.context=context;
-         width=(int) (DensityUtils.geSceenWidth(context)/3-context.getResources().getDimension(R.dimen.margin1)*2);
-         height= (int) (DensityUtils.geSceenWidth(context)/3*0.6-context.getResources().getDimension(R.dimen.margin1)*2);
+         width=(int) (DensityUtils.getSceenWidth(context)/3-context.getResources().getDimension(R.dimen.margin1)*2);
+         height= (int) (DensityUtils.getSceenWidth(context)/3*0.6-context.getResources().getDimension(R.dimen.margin1)*2);
     }
 
     @Override
