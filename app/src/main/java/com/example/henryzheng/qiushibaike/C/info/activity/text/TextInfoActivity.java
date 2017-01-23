@@ -1,20 +1,19 @@
-package com.example.henryzheng.qiushibaike.C.info.video;
+package com.example.henryzheng.qiushibaike.C.info.activity.text;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.henryzheng.qiushibaike.C.info.adapt.VideoInfoAdapt;
+import com.example.henryzheng.qiushibaike.C.info.adapt.TextInfoAdapt;
 import com.example.henryzheng.qiushibaike.C.info.base.BaseInfoActivity;
 import com.example.henryzheng.qiushibaike.C.info.p.BaseInfoHandlerPresenter;
-import com.example.henryzheng.qiushibaike.M.bean.video.Items;
+import com.example.henryzheng.qiushibaike.M.bean.text.Items;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
 import com.example.henryzheng.qiushibaike.R;
 import com.example.henryzheng.qiushibaike.V.identityView.MyRecycleView;
 
-
 import butterknife.BindView;
 
-public class VideoInfoActivity extends BaseInfoActivity {
+public class TextInfoActivity extends BaseInfoActivity {
 
     @BindView(R.id.recycleView0)
     public MyRecycleView recycleView0;
@@ -35,7 +34,7 @@ public class VideoInfoActivity extends BaseInfoActivity {
         Intent intent = getIntent();
         items = (Items) intent.getSerializableExtra("data");
         id = items.getId();
-        count = items.getComments_count();
+        count = Integer.valueOf(items.getCommentsCount());
     }
 
 
@@ -46,7 +45,7 @@ public class VideoInfoActivity extends BaseInfoActivity {
 
 
     private void initComment() {
-        presenter = new BaseInfoHandlerPresenter(this, new VideoInfoAdapt(this, items),
+        presenter = new BaseInfoHandlerPresenter(this, new TextInfoAdapt(this, items),
                 recycleView0, id, count);
         presenter.loadListData(BaseInfoHandlerPresenter.REFRESH_DATA_TYPE);
     }

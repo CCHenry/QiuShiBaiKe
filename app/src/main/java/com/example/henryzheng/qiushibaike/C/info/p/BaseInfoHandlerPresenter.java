@@ -112,7 +112,7 @@ public class BaseInfoHandlerPresenter {
                         }
                     }
                 });}else{
-            adapt.notifyDataSetChanged();
+//            adapt.notifyDataSetChanged();
         }
     }
 

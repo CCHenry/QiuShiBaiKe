@@ -1,4 +1,4 @@
-package com.example.henryzheng.qiushibaike.C.info.news;
+package com.example.henryzheng.qiushibaike.C.info.activity.news;
 
 import android.content.Intent;
 import android.os.Bundle;

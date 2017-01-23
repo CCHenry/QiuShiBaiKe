@@ -102,13 +102,13 @@
                         android:id="@+id/textView1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="01-18 10:08 "/>
+                        android:text="01-18 10:08"/>
 
                     <TextView
                         android:textColor="@color/gray"
                         android:textSize="@dimen/sp4"
                         android:id="@id/textView2"
-
+                        android:layout_marginLeft="@dimen/margin1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="凤凰网"/>

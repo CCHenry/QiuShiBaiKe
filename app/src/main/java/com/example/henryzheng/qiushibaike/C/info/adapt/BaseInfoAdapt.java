@@ -11,14 +11,19 @@ import com.example.henryzheng.qiushibaike.R;
 /**
  * Created by henryzheng on 2017/1/22.
  */
-public class BaseInfoCommentAdapt extends BaseListAdapt {
+public class BaseInfoAdapt extends BaseListAdapt {
     /**
      * @param context //上下文
      */
-    public BaseInfoCommentAdapt(Context context) {
+    public BaseInfoAdapt(Context context) {
         super(context);
     }
 
+    /**
+     * convet复写的内容是评论功能
+     * @param holder
+     * @param bean
+     */
     @Override
     protected void convert(BaseViewHolder holder, Object bean) {
 
@@ -38,7 +43,6 @@ public class BaseInfoCommentAdapt extends BaseListAdapt {
                 } else {
                     holder.setVisability(R.id.linearLayout0, View.GONE);
                 }
-
             }
     }
 

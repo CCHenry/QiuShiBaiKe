@@ -51,9 +51,9 @@ public class Items implements Serializable{
 
     private boolean allow_comment;
 
-    private int share_count;
+    private String share_count;
 
-    private int loop;
+    private String loop;
 
     public String getHigh_url() {
         return high_url;
@@ -215,19 +215,19 @@ public class Items implements Serializable{
         this.allow_comment = allow_comment;
     }
 
-    public int getShare_count() {
+    public String getShare_count() {
         return share_count;
     }
 
-    public void setShare_count(int share_count) {
+    public void setShare_count(String share_count) {
         this.share_count = share_count;
     }
 
-    public int getLoop() {
+    public String getLoop() {
         return loop;
     }
 
-    public void setLoop(int loop) {
+    public void setLoop(String loop) {
         this.loop = loop;
     }
 }

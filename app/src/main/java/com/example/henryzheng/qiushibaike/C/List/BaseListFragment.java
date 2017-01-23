@@ -8,10 +8,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.example.henryzheng.qiushibaike.C.base.BaseFragment;
-import com.example.henryzheng.qiushibaike.C.info.BaseInfoTestActivity;
-import com.example.henryzheng.qiushibaike.C.info.news.NewsInfoActivity;
-import com.example.henryzheng.qiushibaike.C.info.text.TextInfoActivity;
-import com.example.henryzheng.qiushibaike.C.info.video.VideoInfoActivity;
+import com.example.henryzheng.qiushibaike.C.info.activity.news.NewsInfoActivity;
+import com.example.henryzheng.qiushibaike.C.info.activity.text.TextInfoActivity;
+import com.example.henryzheng.qiushibaike.C.info.activity.video.VideoInfoActivity;
 import com.example.henryzheng.qiushibaike.C.list.adapt.BaseListAdapt;
 import com.example.henryzheng.qiushibaike.C.list.adapt.NewsListAdapt;
 import com.example.henryzheng.qiushibaike.C.list.adapt.TextListAdapt;
@@ -136,7 +135,6 @@ public class BaseListFragment extends BaseFragment implements
     public void onItemClickListner(View v, int position) {
         Intent intent = null;
         if (recycleAdapter instanceof VideoListAdapt) {
-            BaseInfoTestActivity.myActivityType= BaseInfoTestActivity.ActivityInfoType.video;
             intent = new Intent(getActivity(), VideoInfoActivity.class);
             intent.putExtra("data", (Serializable) recycleAdapter.getData().get(position - 1));
             intent.putExtra("position", position - 1);

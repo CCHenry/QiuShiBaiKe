@@ -24,9 +24,9 @@ public class Items {
     private int created_at;
     private String content;
     private String state;
-    private int comments_count;
+    private String comments_count;
     private boolean allow_comment;
-    private int share_count;
+    private String share_count;
     private String type;
     public void setFormat(String format) {
          this.format = format;
@@ -126,10 +126,10 @@ public class Items {
          return state;
      }
 
-    public void setCommentsCount(int commentsCount) {
+    public void setCommentsCount(String commentsCount) {
          this.comments_count = commentsCount;
      }
-     public int getCommentsCount() {
+     public String getCommentsCount() {
          return comments_count;
      }
 
@@ -140,10 +140,10 @@ public class Items {
          return allow_comment;
      }
 
-    public void setShareCount(int shareCount) {
+    public void setShareCount(String shareCount) {
          this.share_count = shareCount;
      }
-     public int getShareCount() {
+     public String getShareCount() {
          return share_count;
      }
 

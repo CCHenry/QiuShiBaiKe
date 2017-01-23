@@ -21,15 +21,14 @@
         </activity>
         <activity android:name=".MainActivity">
         </activity>
-        <activity android:name=".C.info.video.VideoInfoActivity">
+        <activity android:name=".C.info.activity.video.VideoInfoActivity">
 
             <!-- android:logo="@drawable/common_navbar_back_normal" -->
             <!-- android:label="详情" -->
         </activity>
-        <activity android:name=".C.info.news.NewsInfoActivity">
+        <activity android:name=".C.info.activity.news.NewsInfoActivity">
         </activity>
-        <activity android:name=".C.info.BaseInfoTestActivity"/>
-        <activity android:name=".C.info.text.TextInfoActivity"/>
+        <activity android:name=".C.info.activity.text.TextInfoActivity"/>
 
     </application>
 

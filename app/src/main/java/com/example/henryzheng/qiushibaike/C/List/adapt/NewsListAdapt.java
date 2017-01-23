@@ -32,7 +32,7 @@ public class NewsListAdapt extends BaseListAdapt {
         Data data= (Data) bean;
         holder.setText(R.id.textView0, data.getTitle());
 
-
+        //图片处理
         if (data.getCovers().size()<3&&data.getCovers().size()>0){
             holder.setVisability(R.id.imageView0, View.VISIBLE);
             holder.setVisability(R.id.relativeLayout0, View.GONE);
@@ -56,6 +56,9 @@ public class NewsListAdapt extends BaseListAdapt {
         {  holder.setVisability(R.id.imageView0, View.GONE);
             holder.setVisability(R.id.relativeLayout0, View.GONE);
         }
+
+        holder.setText(R.id.textView1,data.getCreatedAt());
+        holder.setText(R.id.textView2,data.getSource());
 //        holder.setText(R.id.textView1, data.getContent());
 //        holder.setImageResource(R.id.imageView0,"http:"+data.getUser().getThumb(),true);
 //        holder.setImageResource(R.id.imageView1,data.getPic_url(),false);

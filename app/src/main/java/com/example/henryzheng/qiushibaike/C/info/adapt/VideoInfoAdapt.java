@@ -21,7 +21,7 @@ import java.util.TimerTask;
 /**
  * Created by henryzheng on 2017/1/22.
  */
-public class VideoInfoAdapt extends BaseInfoCommentAdapt {
+public class VideoInfoAdapt extends BaseInfoAdapt {
     private SurfaceView surfaceView;
     private SeekBar seekBar;
     private MediaPlayer mediaPlayer;

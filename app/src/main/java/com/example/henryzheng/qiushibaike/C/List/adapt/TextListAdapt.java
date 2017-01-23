@@ -27,7 +27,9 @@ public class TextListAdapt extends BaseListAdapt {
 
             }
         holder.setText(R.id.textView1, data.getContent());
-
+        holder.setText(R.id.textView2,data.getVotes().getUp());
+        holder.setText(R.id.textView3, data.getCommentsCount());
+        holder.setText(R.id.textView4,data.getShareCount());
     }
 
     @Override

@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.henryzheng.qiushibaike.C.info.video.VideoInfoActivity">
+    tools:context=".C.info.activity.video.VideoInfoActivity">
 
                     <com.example.henryzheng.qiushibaike.V.identityView.MyRecycleView
                         android:id="@id/recycleView0"

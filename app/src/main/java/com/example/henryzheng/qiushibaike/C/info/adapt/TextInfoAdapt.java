@@ -9,7 +9,7 @@ import com.example.henryzheng.qiushibaike.R;
 /**
  * Created by henryzheng on 2017/1/22.
  */
-public class TextInfoAdapt extends BaseInfoCommentAdapt {
+public class TextInfoAdapt extends BaseInfoAdapt {
 
 
     private Items headBean;

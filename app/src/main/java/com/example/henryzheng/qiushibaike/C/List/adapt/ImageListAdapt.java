@@ -43,7 +43,9 @@ public class ImageListAdapt extends BaseListAdapt {
                     .getImageSize().getM().get(1) / data.getImageSize().getM().get(0))));
             holder.setImageResource(R.id.imageView1, "http:" + data.getHighLoc(), false);
         }
-
+        holder.setText(R.id.textView2,data.getVotes().getUp());
+        holder.setText(R.id.textView3, data.getCommentsCount());
+        holder.setText(R.id.textView4,data.getShareCount());
 
     }
 

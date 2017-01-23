@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context="com.example.henryzheng.qiushibaike.C.info.video.VideoInfoActivity">
+    tools:context=".C.info.activity.video.VideoInfoActivity">
 
     <include
         layout="@layout/layout_action_bar"/>

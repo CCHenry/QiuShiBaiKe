@@ -11,19 +11,19 @@ package com.example.henryzheng.qiushibaike.M.bean.image;
  */
 public class Votes {
 
-    private int down;
-    private int up;
-    public void setDown(int down) {
+    private String down;
+    private String up;
+    public void setDown(String down) {
          this.down = down;
      }
-     public int getDown() {
+     public String getDown() {
          return down;
      }
 
-    public void setUp(int up) {
+    public void setUp(String up) {
          this.up = up;
      }
-     public int getUp() {
+     public String getUp() {
          return up;
      }
 

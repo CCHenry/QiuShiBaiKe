@@ -34,7 +34,11 @@ public class VideoListAdapt extends BaseListAdapt {
         int lh= (int) (lw/vWidth*vHeight);
         holder.setLayoutParams(R.id.imageView1,lw,lh);
         holder.setImageResource(R.id.imageView1, data.getPic_url(), false);
+        holder.setText(R.id.textView2,data.getVotes().getUp());
         holder.setText(R.id.textView3, String.valueOf(data.getComments_count()));
+        holder.setText(R.id.textView4,data.getShare_count());
+        holder.setText(R.id.textView5,data.getLoop());
+
     }
 
     @Override
