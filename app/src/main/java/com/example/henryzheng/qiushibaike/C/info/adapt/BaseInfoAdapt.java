@@ -6,6 +6,7 @@ import android.view.View;
 import com.example.henryzheng.qiushibaike.C.list.adapt.BaseListAdapt;
 import com.example.henryzheng.qiushibaike.C.list.adapt.BaseViewHolder;
 import com.example.henryzheng.qiushibaike.M.bean.infoComment.Items;
+import com.example.henryzheng.qiushibaike.M.utils.DateUtil;
 import com.example.henryzheng.qiushibaike.R;
 
 /**
@@ -30,11 +31,14 @@ public class BaseInfoAdapt extends BaseListAdapt {
         Items data = (Items) bean;
         if (data.getUser() != null)
             if (data.getUser().getLogin() != null) {
+
                 holder.setText(R.id.textView0, data.getUser().getLogin());
                 holder.setText(R.id.textView1, data.getLikeCount());
                 holder.setText(R.id.textView2, data.getContent());
                 holder.setImageResource(R.id.imageView0, "http:" + data.getUser().getThumb(), true);
                 if (data.getRefer() != null) {
+                    holder.setVisability(R.id.linearLayout0, View.VISIBLE);
+
                     if (data.getRefer().getUser() != null && data.getRefer().getUser().getLogin() !=
                             null) {
                         holder.setText(R.id.textView3, data.getRefer().getUser().getLogin());
@@ -44,6 +48,9 @@ public class BaseInfoAdapt extends BaseListAdapt {
                     holder.setVisability(R.id.linearLayout0, View.GONE);
                 }
             }
+        holder.setText(R.id.textView5, DateUtil.getBeforeTimeFromTime(data.getCreatedAt()));
+        holder.setText(R.id.textView6, data.getFloor()+"楼");
+
     }
 
     @Override

@@ -4,19 +4,12 @@
               android:layout_height="wrap_content"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
+
               tools:context=".C.list.BaseListFragment">
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="5dp"
-        android:layout_marginLeft="@dimen/margin1"
-        android:layout_marginRight="@dimen/margin1"
-        android:layout_marginBottom="@dimen/margin1"
-        app:contentPadding="10dp"
-        android:background="@color/morelightgrey"
-        app:cardUseCompatPadding="true"
-       >
+
     <LinearLayout
+        android:layout_margin="@dimen/margin0"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -54,7 +47,7 @@
                         android:layout_marginTop="@dimen/margin1"
                         android:text="名称"
                         android:layout_centerVertical="true"
-                        android:textSize="@dimen/sp0"/>
+                        style="@style/textStyle2"/>
 
                     <ImageView
                         android:layout_width="@dimen/size1"
@@ -90,13 +83,14 @@
                 android:layout_height="wrap_content"
                 android:background="@color/lightgray"
                 android:orientation="vertical"
-                android:id="@id/linearLayout0">
+                android:id="@+id/linearLayout0">
 
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin1"
+                    style="@style/textStyle2"
                     android:text="用户"
                     />
 
@@ -108,83 +102,32 @@
                     android:text="这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论"/>
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/margin1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/textStyle1"
+                    android:id="@+id/textView5"
+                    android:text="19小时前"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/textStyle1"
+                    android:id="@id/textView6"
+                    android:layout_marginLeft="@dimen/margin1"
+                    android:text="19楼"/>
+            </LinearLayout>
 
+            </LinearLayout>
         </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.3px"
+     android:background="@color/lightgrey">
     </LinearLayout>
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="@dimen/h0"-->
-    <!--android:gravity="center_vertical">-->
 
-
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:id="@id/textView0"-->
-    <!--android:text="名称"-->
-    <!--android:layout_margin="@dimen/margin0"-->
-    <!--android:textSize="@dimen/sp0"/>-->
-    <!--</LinearLayout>-->
-    <!--<TextView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="asdas"-->
-    <!--android:textSize="@dimen/sp0"-->
-    <!--android:id="@+id/textView1"/>-->
-    <!--<ImageView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="400dip"-->
-    <!--android:background="@mipmap/ic_launcher"-->
-    <!--android:id="@+id/imageView1"-->
-    <!--/>-->
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:orientation="horizontal"-->
-    <!--&gt;-->
-
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:id="@id/textView2"-->
-
-    <!--android:text="好笑 "/>-->
-
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="284"-->
-    <!--android:textSize="@dimen/sp1"/>-->
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text=" ·评论"/>-->
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="33"-->
-    <!--android:id="@id/textView3"-->
-    <!--android:textSize="@dimen/sp1"/>-->
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text=" ·分享 "/>-->
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="1"-->
-    <!--android:id="@id/textView4"-->
-    <!--android:textSize="@dimen/sp1"/>-->
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text=" ·再生 "/>-->
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="22"-->
-    <!--android:id="@id/textView5"-->
-    <!--android:textSize="@dimen/sp1"/>-->
-    <!--</LinearLayout>-->
-    </android.support.v7.widget.CardView>
 </LinearLayout>

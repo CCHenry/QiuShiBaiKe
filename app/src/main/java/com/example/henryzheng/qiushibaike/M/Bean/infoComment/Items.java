@@ -15,8 +15,8 @@ public class Items {
     private boolean liked;
     private String like_count;
     private String at_infos;
-    private int floor;
-    private int created_at;
+    private String floor;
+    private String created_at;
     private int id;
     private User user;
     public Refer refer;
@@ -55,17 +55,17 @@ public class Items {
          return at_infos;
      }
 
-    public void setFloor(int floor) {
+    public void setFloor(String floor) {
          this.floor = floor;
      }
-     public int getFloor() {
+     public String getFloor() {
          return floor;
      }
 
-    public void setCreatedAt(int createdAt) {
+    public void setCreatedAt(String createdAt) {
          this.created_at = createdAt;
      }
-     public int getCreatedAt() {
+     public String getCreatedAt() {
          return created_at;
      }
 

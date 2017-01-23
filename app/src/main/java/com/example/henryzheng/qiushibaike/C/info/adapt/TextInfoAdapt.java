@@ -38,5 +38,7 @@ public class TextInfoAdapt extends BaseInfoAdapt {
 
             }
         holder.setText(R.id.textView1, data.getContent());
+        holder.setText(R.id.textView6, data.getCommentsCount());
+
     }
 }

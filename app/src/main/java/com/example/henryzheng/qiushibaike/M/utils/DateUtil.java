@@ -14,11 +14,11 @@ public class DateUtil {
      * @param date
      * @return
      */
-    public  static String[] getFormDateFromDate(String date) {
-        int month=0;
-        int dayOfMonth=0;
-        int dayOfWeek=0;
-        String monthStr="", dayOfWeekStr="",dayOfMonthStr="";
+    public static String[] getFormDateFromDate(String date) {
+        int month = 0;
+        int dayOfMonth = 0;
+        int dayOfWeek = 0;
+        String monthStr = "", dayOfWeekStr = "", dayOfMonthStr = "";
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Calendar c = Calendar.getInstance();
         try {
@@ -31,8 +31,7 @@ public class DateUtil {
             e.printStackTrace();
         }
 
-        switch (c.get(Calendar.DAY_OF_WEEK))
-        {
+        switch (c.get(Calendar.DAY_OF_WEEK)) {
             case 1:
                 dayOfWeekStr = "SunDay";
                 break;
@@ -94,11 +93,32 @@ public class DateUtil {
                 monthStr = "December";
                 break;
         }
-        if (dayOfMonth<10){
-            dayOfMonthStr="0"+dayOfMonth;
-        }else
-            dayOfMonthStr=dayOfMonth+"";
-        return new String[]{monthStr,dayOfMonthStr,dayOfWeekStr};
+        if (dayOfMonth < 10) {
+            dayOfMonthStr = "0" + dayOfMonth;
+        } else
+            dayOfMonthStr = dayOfMonth + "";
+        return new String[]{monthStr, dayOfMonthStr, dayOfWeekStr};
     }
 
+    public static String getBeforeTimeFromTime(String data) {
+        long beforeTime = (System.currentTimeMillis() / 1000 - StringUtil.parseLong(data));
+        long temp = (long) (beforeTime / 86400.f);
+        if (temp >= 1) {
+            return temp + "天前";
+        } else {
+            long temp1 = (long) (beforeTime / 3600.f);
+            if (temp1 >= 1)
+                return temp1 + "小时前";
+            else {
+                long temp2 = (long) (beforeTime / 60.f);
+                if (temp2 >= 1)
+                    return temp2 + "分钟";
+                else {
+                    return beforeTime + "秒";
+
+                }
+            }
+
+        }
+    }
 }

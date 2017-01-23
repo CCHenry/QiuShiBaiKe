@@ -13,4 +13,12 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="textStyle1">
+        <item name="android:textSize">@dimen/sp4</item>
+        <item name="android:textColor">@color/less_grey</item>
+    </style>
+    <style name="textStyle2">
+        <item name="android:textSize">@dimen/sp5</item>
+        <item name="android:textColor">@color/less_grey</item>
+    </style>
 </resources>
