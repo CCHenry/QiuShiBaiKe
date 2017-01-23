@@ -12,6 +12,7 @@
     <dimen name="sp0">15sp</dimen>
     <dimen name="sp1">13sp</dimen>
     <dimen name="sp5">14sp</dimen>
+    <dimen name="sp6">16sp</dimen>
 
     <dimen name="sp2">17sp</dimen>
     <dimen name="sp4">12sp</dimen><!--list item textSize-->
@@ -25,6 +26,6 @@
 
     <dimen name="margin4">20dip</dimen>
 
-    <dimen name="size1">12dip </dimen>
+    <dimen name="size1">12dip</dimen>
 
 </resources>

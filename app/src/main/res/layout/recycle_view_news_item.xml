@@ -38,7 +38,7 @@
                     android:id="@+id/textView0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:lineSpacingExtra="@dimen/margin1"
+                    style="@style/textStyle3"
                     android:layout_marginRight="@dimen/margin3"
                     android:text="新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容"/>
 
@@ -97,16 +97,15 @@
                     >
 
                     <TextView
-                        android:textColor="@color/gray"
-                        android:textSize="@dimen/sp4"
+                        style="@style/textStyle1"
                         android:id="@+id/textView1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="01-18 10:08"/>
 
                     <TextView
-                        android:textColor="@color/gray"
-                        android:textSize="@dimen/sp4"
+                        style="@style/textStyle1"
+
                         android:id="@id/textView2"
                         android:layout_marginLeft="@dimen/margin1"
                         android:layout_width="wrap_content"

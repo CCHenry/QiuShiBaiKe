@@ -8,7 +8,9 @@
               tools:context=".C.list.BaseListFragment">
 
     <LinearLayout
-        android:layout_margin="@dimen/margin0"
+        android:layout_marginLeft="@dimen/margin0"
+        android:layout_marginTop="@dimen/margin0"
+        android:layout_marginRight="@dimen/margin0"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +21,6 @@
             android:layout_width="@dimen/size0"
             android:layout_height="@dimen/size0"
             android:layout_margin="@dimen/margin0"
-            android:background="@mipmap/ic_launcher"
             />
 
         <LinearLayout
@@ -41,40 +42,41 @@
                     android:layout_gravity="center_vertical">
 
                     <TextView
-                        android:id="@id/textView0"
+                        android:id="@+id/textView0"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin1"
                         android:text="名称"
                         android:layout_centerVertical="true"
-                        style="@style/textStyle2"/>
+                        style="@style/textStyle1"/>
 
                     <ImageView
                         android:layout_width="@dimen/size1"
                         android:layout_height="@dimen/size1"
                         android:layout_toLeftOf="@+id/textView1"
                         android:layout_centerVertical="true"
-
-                        android:background="@mipmap/ic_launcher"/>
+                        android:alpha="0.3"
+                        android:src="@drawable/good"/>
 
                     <TextView
                         android:layout_centerVertical="true"
                         android:id="@+id/textView1"
+                        android:layout_marginLeft="@dimen/margin1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_marginTop="@dimen/margin1"
-                        android:text="1"
-                        android:textSize="@dimen/sp0"/>
+                        style="@style/textStyle1"/>
                 </RelativeLayout>
 
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin1"
+                    android:layout_marginTop="@dimen/margin5"
                     android:text="这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论"
-                    android:textSize="@dimen/sp0"/>
+                    style="@style/textStyle4"
+                    />
 
             </LinearLayout>
 
@@ -83,6 +85,9 @@
                 android:layout_height="wrap_content"
                 android:background="@color/lightgray"
                 android:orientation="vertical"
+                android:layout_marginTop="@dimen/margin1"
+                android:layout_marginBottom="@dimen/margin1"
+
                 android:id="@+id/linearLayout0">
 
                 <TextView
@@ -98,7 +103,10 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin1"
+                    style="@style/textStyle4"
+                    android:layout_marginLeft="@dimen/margin1"
+                    android:layout_marginRight="@dimen/margin1"
+                    android:layout_marginBottom="@dimen/margin1"
                     android:text="这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论这是评论"/>
 
             </LinearLayout>
@@ -121,13 +129,15 @@
                     android:layout_marginLeft="@dimen/margin1"
                     android:text="19楼"/>
             </LinearLayout>
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.3px"
+                android:layout_marginTop="@dimen/margin1"
+                android:background="@color/lightgrey">
             </LinearLayout>
+            </LinearLayout>
+
         </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0.3px"
-     android:background="@color/lightgrey">
-    </LinearLayout>
+
 
 </LinearLayout>

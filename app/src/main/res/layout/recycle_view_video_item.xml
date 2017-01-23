@@ -10,9 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="-15dip"
-        app:cardUseCompatPadding="true"
-        app:cardElevation="5dp"
         app:cardCornerRadius="30dp"
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="true"
         app:contentPadding="13dp">
 
         <LinearLayout
@@ -31,90 +31,99 @@
                     android:layout_width="@dimen/size0"
                     android:layout_height="@dimen/size0"
                     android:layout_margin="@dimen/margin0"
-
+                    android:scaleType="fitCenter"
                     />
 
                 <TextView
-                    android:id="@id/textView0"
+                    android:id="@+id/textView0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin0"
                     android:text="名称"
-                    android:textSize="@dimen/sp0"/>
+                    style="@style/textStyle0"/>
             </LinearLayout>
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="asdas"
+                android:text="奥斯丁发哈是的哈四大hi哦啊是低哦按花是滴哦哈斯殴打后我爱上电视好滴哈似乎滴啊手动天生的 "
 
-                android:textSize="@dimen/sp0"/>
+                style="@style/textStyle3"/>
 
             <ImageView
                 android:id="@+id/imageView1"
-                android:layout_marginTop="@dimen/margin1"
                 android:layout_width="match_parent"
                 android:layout_height="400dip"
+                android:layout_marginTop="@dimen/margin1"
                 />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="@dimen/margin1"
+                android:orientation="horizontal"
 
                 >
 
                 <TextView
+                    style="@style/textStyle1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:text="好笑 "/>
 
                 <TextView
                     android:id="@id/textView2"
+                    style="@style/textStyle1"
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="284"
-                    android:textSize="@dimen/sp1"/>
+                    />
 
                 <TextView
+                    style="@style/textStyle1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" ·评论"/>
+                    android:text=" ·评论"
+                    />
 
                 <TextView
                     android:id="@id/textView3"
+                    style="@style/textStyle1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="33"
-                    android:textSize="@dimen/sp1"/>
+                    />
 
                 <TextView
+                    style="@style/textStyle1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" ·分享 "/>
+                    android:text=" ·分享 "
+                    />
 
                 <TextView
                     android:id="@id/textView4"
+                    style="@style/textStyle1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1"
-                    android:textSize="@dimen/sp1"/>
+                    />
 
                 <TextView
+                    style="@style/textStyle1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" ·再生 "/>
+                    android:text=" ·再生 "
+                    />
 
                 <TextView
                     android:id="@id/textView5"
+                    style="@style/textStyle1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="22"
-                    android:textSize="@dimen/sp1"/>
+                    />
             </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>

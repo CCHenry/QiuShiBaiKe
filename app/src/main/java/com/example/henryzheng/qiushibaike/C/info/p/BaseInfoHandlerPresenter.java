@@ -22,7 +22,7 @@ import rx.schedulers.Schedulers;
  * Created by henryzheng on 2017/1/20.
  */
 public class BaseInfoHandlerPresenter {
-    private int count=0;
+    private int count = 0;
     private MyRecycleView recycleView;
     private final Context context;
     int page = 0;
@@ -37,12 +37,13 @@ public class BaseInfoHandlerPresenter {
 
     public BaseInfoHandlerPresenter(Context context,
                                     BaseListAdapt
-                                            recycleAdapter, MyRecycleView recyclerView, String id, int count) {
+                                            recycleAdapter, MyRecycleView recyclerView, String
+                                            id, int count) {
         this.adapt = recycleAdapter;
         this.context = context;
         this.id = id;
         LinearLayoutManager lin = new LinearLayoutManager(context);
-        this.recycleView=recyclerView;
+        this.recycleView = recyclerView;
         recycleView.setLayoutManager(lin);
         recycleView.setItemAnimator(new DefaultItemAnimator());// 设置增加或删除条目的动画
         recycleView.setAdapter(adapt); // 设置Adapter
@@ -59,7 +60,7 @@ public class BaseInfoHandlerPresenter {
 
             }
         });
-        this.count=count;
+        this.count = count;
         recycleView.setLoadMoreListener(new MyRecycleView.LoadMoreListener() {
             @Override
             public void onLoadMore() {
@@ -82,37 +83,41 @@ public class BaseInfoHandlerPresenter {
 
     private void startInfoCommentHandle(final int load_data_type) {
 
-            int onceLoadCommentCount=((count-adapt.getData().size())>=30)?30:(count-adapt.getData().size());
-        if (onceLoadCommentCount>0){
-        ApiManage.getInstence().getInfoCommentApiService().getLastDaily(id, page,
-                onceLoadCommentCount, 0)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<InfoCommentRootBean>() {
-                    @Override
-                    public void onCompleted() {
-                    }
+        int onceLoadCommentCount = ((count - adapt.getData().size()) >= 30) ? 30 : (count - adapt
+                .getData().size());
+        if (onceLoadCommentCount > 0) {
+            ApiManage.getInstence().getInfoCommentApiService().getLastDaily(id, page,
+                    onceLoadCommentCount, 0)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Observer<InfoCommentRootBean>() {
+                        @Override
+                        public void onCompleted() {
+                        }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        CCLog.print(e.getMessage().toString());
-                    }
+                        @Override
+                        public void onError(Throwable e) {
+                            CCLog.print(e.getMessage().toString());
+                        }
 
-                    @Override
-                    public void onNext(InfoCommentRootBean rootListBean) {
+                        @Override
+                        public void onNext(InfoCommentRootBean rootListBean) {
 //                        handlerAndShowData(load_data_type, rootListBean);
-                        if (rootListBean != null) {
-                            if (rootListBean.getCount() > 0) {
-                                CCLog.print(Thread.currentThread().getName());
-                                if (load_data_type == LOAD_MORE_TYPE) {
-                                    loadNewData(rootListBean.getItems());
-                                } else if (load_data_type == REFRESH_DATA_TYPE)
-                                    refreshData(rootListBean.getItems());
+                            if (rootListBean != null) {
+                                if (rootListBean.getCount() > 0) {
+                                    CCLog.print(Thread.currentThread().getName());
+                                    if (load_data_type == LOAD_MORE_TYPE) {
+                                        loadNewData(rootListBean.getItems());
+                                    } else if (load_data_type == REFRESH_DATA_TYPE)
+                                        refreshData(rootListBean.getItems());
+                                }
                             }
                         }
-                    }
-                });}else{
+                    });
+        } else {
 //            adapt.notifyDataSetChanged();
+            adapt.setIsEnd(true);
+            adapt.notifyDataSetChanged();
         }
     }
 

@@ -3,13 +3,15 @@
   */
 package com.example.henryzheng.qiushibaike.M.bean.image;
 
+import java.io.Serializable;
+
 /**
  * Auto-generated: 2017-01-18 15:28:26
  *
  * @author aTool.org (i@aTool.org)
  * @website http://www.atool.org/json2javabean.php
  */
-public class Votes {
+public class Votes  implements Serializable {
 
     private String down;
     private String up;

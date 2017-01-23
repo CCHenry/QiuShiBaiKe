@@ -171,19 +171,7 @@ public class MainFragmentsPresenter {
                     }
                 });
     }
-//    /**
-//     * 处理图片和展示
-//     *
-//     * @param load_data_type
-//     * @param result
-//     */
-//    private void handlerAndShowData(final int load_data_type, VideoRootBean result) {
-//        if (load_data_type == LOAD_MORE_TYPE) {
-//            mainFragmentInterface.loadNewData(result.getItems());
-//
-//        } else if (load_data_type == REFRESH_DATA_TYPE)
-//            mainFragmentInterface.refreshData(result.getItems());
-//    }
+
 
     /**
      * 根据刷新和加载处理page

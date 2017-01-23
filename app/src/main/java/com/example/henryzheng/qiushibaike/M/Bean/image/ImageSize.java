@@ -2,6 +2,7 @@
   * Copyright 2017 aTool.org 
   */
 package com.example.henryzheng.qiushibaike.M.bean.image;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -10,7 +11,7 @@ import java.util.List;
  * @author aTool.org (i@aTool.org)
  * @website http://www.atool.org/json2javabean.php
  */
-public class ImageSize {
+public class ImageSize  implements Serializable {
 
     private List<Integer> s;
     private List<Integer> m;

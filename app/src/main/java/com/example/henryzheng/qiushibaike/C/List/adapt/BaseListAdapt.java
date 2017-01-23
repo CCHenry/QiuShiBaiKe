@@ -26,6 +26,7 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
     private static final int FOOT_TYPE = 2;
     LayoutInflater _mLayoutInflater;
     private BaseViewHolder holder;
+    boolean isEnd = false;
 
     /**
      * @param context //上下文
@@ -48,27 +49,8 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
             return holder;
         } else {
             View view = _mLayoutInflater.inflate(getLayoutItemLayout(), parent, false);
-            holder = new BaseViewHolder(context, DATA_TYPE, view,onItemClickListner);
+            holder = new BaseViewHolder(context, DATA_TYPE, view, onItemClickListner);
 
-//            //单击事件回调
-//            view.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    if (clickFlag) {
-//                        onItemClickListner.onItemClickListner(v, holder.getLayoutPosition());
-//                    }
-//                    clickFlag = true;
-//                }
-//            });
-//            //单击长按事件回调
-//            view.setOnLongClickListener(new View.OnLongClickListener() {
-//                @Override
-//                public boolean onLongClick(View v) {
-//                    onItemLongClickListner.onItemLongClickListner(v, holder.getLayoutPosition());
-//                    clickFlag = false;
-//                    return false;
-//                }
-//            });
             return holder;
         }
     }
@@ -76,17 +58,18 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
     public int getHeadViewById() {
         return R.layout.layout_recycle_head;
     }
-    public int getFootViewById()
-        {
-            return R.layout.layout_recycle_foot;
-        }
+
+    public int getFootViewById() {
+        return R.layout.layout_recycle_foot;
+    }
+
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
         if (getItemCount() > 0) {
             if (position > 0 && position < getItemCount() - 1) {
                 convert(holder, data.get(position - 1));
             } else if (position == getItemCount() - 1) {
-                convertByBottom(holder);
+                convertByFloor(holder);
             } else if (position == 0) {
                 convertByHead(holder);
             }
@@ -99,10 +82,15 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
 
     }
 
-    public void convertByBottom(BaseViewHolder holder) {
-
+    public void convertByFloor(BaseViewHolder holder) {
+        if (isEnd) {
+            holder.setVisability(R.id.relativeLayout0, View.GONE);
+        }
     }
 
+    public void setIsEnd(boolean isEnd) {
+        this.isEnd = isEnd;
+    }
 
     public void setOnItemClickListner(OnItemClickListner onItemClickListner) {
         this.onItemClickListner = onItemClickListner;
@@ -113,7 +101,6 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
     }
 
     /**
-     *
      * @return
      */
     protected abstract int getLayoutItemLayout();
@@ -128,7 +115,7 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
 
     @Override
     public int getItemCount() {
-         if (data.size() > 0) {
+        if (data.size() > 0) {
             return data.size() + 2;
         } else
             return 2;
@@ -170,7 +157,7 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
      * @param data
      */
     public void loadMoreData(List<T> data) {
-        int start=this.data.size()+2;
+        int start = this.data.size() + 2;
         for (int i = 0; i < data.size(); i++) {
             this.data.add(data.get(i));
             notifyItemInserted(start);

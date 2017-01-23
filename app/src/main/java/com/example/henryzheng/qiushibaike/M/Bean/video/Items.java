@@ -45,7 +45,7 @@ public class Items implements Serializable{
 
     private String state;
 
-    private int comments_count;
+    private String comments_count;
 
     private String low_url;
 
@@ -191,11 +191,11 @@ public class Items implements Serializable{
         this.state = state;
     }
 
-    public int getComments_count() {
+    public String getComments_count() {
         return comments_count;
     }
 
-    public void setComments_count(int comments_count) {
+    public void setComments_count(String comments_count) {
         this.comments_count = comments_count;
     }
 

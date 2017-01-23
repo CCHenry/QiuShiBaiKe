@@ -8,10 +8,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.example.henryzheng.qiushibaike.C.base.BaseFragment;
+import com.example.henryzheng.qiushibaike.C.info.activity.image.ImageInfoActivity;
 import com.example.henryzheng.qiushibaike.C.info.activity.news.NewsInfoActivity;
 import com.example.henryzheng.qiushibaike.C.info.activity.text.TextInfoActivity;
 import com.example.henryzheng.qiushibaike.C.info.activity.video.VideoInfoActivity;
 import com.example.henryzheng.qiushibaike.C.list.adapt.BaseListAdapt;
+import com.example.henryzheng.qiushibaike.C.list.adapt.ImageListAdapt;
 import com.example.henryzheng.qiushibaike.C.list.adapt.NewsListAdapt;
 import com.example.henryzheng.qiushibaike.C.list.adapt.TextListAdapt;
 import com.example.henryzheng.qiushibaike.C.list.adapt.VideoListAdapt;
@@ -134,6 +136,7 @@ public class BaseListFragment extends BaseFragment implements
     @Override
     public void onItemClickListner(View v, int position) {
         Intent intent = null;
+        if (position>0){
         if (recycleAdapter instanceof VideoListAdapt) {
             intent = new Intent(getActivity(), VideoInfoActivity.class);
             intent.putExtra("data", (Serializable) recycleAdapter.getData().get(position - 1));
@@ -147,8 +150,12 @@ public class BaseListFragment extends BaseFragment implements
             intent = new Intent(getActivity(), TextInfoActivity.class);
             intent.putExtra("data", (Serializable) recycleAdapter.getData().get(position - 1));
             intent.putExtra("position", position - 1);
+        }else if (recycleAdapter instanceof ImageListAdapt){
+            intent = new Intent(getActivity(), ImageInfoActivity.class);
+            intent.putExtra("data", (Serializable) recycleAdapter.getData().get(position - 1));
+            intent.putExtra("position", position - 1);
         }
 
-        startActivity(intent);
+        startActivity(intent);}
     }
 }

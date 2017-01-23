@@ -27,6 +27,7 @@ public class NavigationView extends RelativeLayout implements View.OnClickListen
     int titleWidth = 0;
     float instanceX = 0;
     LayoutParams bottomLinLayoutParams;
+    private TextView tv3;
 
     public NavigationView(Context context) {
         super(context);
@@ -45,17 +46,21 @@ public class NavigationView extends RelativeLayout implements View.OnClickListen
         tv0 = (TextView) nv.findViewById(R.id.textView0);
         tv1 = (TextView) nv.findViewById(R.id.textView1);
         tv2 = (TextView) nv.findViewById(R.id.textView2);
+        tv3 = (TextView) nv.findViewById(R.id.textView3);
+
         lin0 = (LinearLayout) nv.findViewById(R.id.lin0);
         bottomLin = (LinearLayout) nv.findViewById(R.id.linearLayout5);
         tv0.setOnClickListener(this);
         tv1.setOnClickListener(this);
         tv2.setOnClickListener(this);
+        tv3.setOnClickListener(this);
+
         int width = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
         int height = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
         lin0.measure(width, height);
         height = lin0.getMeasuredHeight();
         width = lin0.getMeasuredWidth();
-        titleWidth = width / 3;
+        titleWidth = width / 4;
         LayoutParams layoutParams = (LayoutParams) bottomLin
                 .getLayoutParams();
         layoutParams.width = titleWidth;
@@ -75,8 +80,8 @@ public class NavigationView extends RelativeLayout implements View.OnClickListen
      */
     public void setMainPage(final ViewPager viewPager) {
         this.viewPager = viewPager;
-        final int selectColor = getResources().getColor(R.color.gray2);
-        final int nomalColor = getResources().getColor(R.color.gray);
+        final int selectColor = getResources().getColor(R.color.whitesmoke);
+        final int nomalColor = getResources().getColor(R.color.lesswhitesmoke);
 
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -86,16 +91,29 @@ public class NavigationView extends RelativeLayout implements View.OnClickListen
                         tv0.setTextColor(selectColor);
                         tv1.setTextColor(nomalColor);
                         tv2.setTextColor(nomalColor);
+                        tv3.setTextColor(nomalColor);
+
                         break;
                     case 1:
                         tv1.setTextColor(selectColor);
                         tv0.setTextColor(nomalColor);
                         tv2.setTextColor(nomalColor);
+                        tv3.setTextColor(nomalColor);
+
                         break;
                     case 2:
                         tv2.setTextColor(selectColor);
                         tv0.setTextColor(nomalColor);
                         tv1.setTextColor(nomalColor);
+                        tv3.setTextColor(nomalColor);
+
+                        break;
+                    case 3:
+                        tv2.setTextColor(nomalColor);
+                        tv0.setTextColor(nomalColor);
+                        tv1.setTextColor(nomalColor);
+                        tv3.setTextColor(selectColor);
+
                         break;
                 }
             }
@@ -138,6 +156,12 @@ public class NavigationView extends RelativeLayout implements View.OnClickListen
                         bottomLin.setLayoutParams(bottomLinLayoutParams);
                         bottomLin.requestLayout();
                         break;
+                    case 3:
+                        bottomLinLayoutParams.leftMargin = titleWidth * 3 + (int) (titleWidth *
+                                positionOffset);
+                        bottomLin.setLayoutParams(bottomLinLayoutParams);
+                        bottomLin.requestLayout();
+                        break;
                 }
             }
         });
@@ -154,6 +178,9 @@ public class NavigationView extends RelativeLayout implements View.OnClickListen
                 break;
             case R.id.textView2:
                 viewPager.setCurrentItem(2);
+                break;
+            case R.id.textView3:
+                viewPager.setCurrentItem(3);
                 break;
         }
     }

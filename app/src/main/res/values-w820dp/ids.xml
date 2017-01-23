@@ -93,6 +93,7 @@
     <item name="actionBar" type="id">false</item>
     <item name="actionBar_back" type="id">false</item>
     <item name="actionBar_back_btn" type="id">false</item>
+    <item name="navigation_view" type="id">false</item>
 
 
 </resources>

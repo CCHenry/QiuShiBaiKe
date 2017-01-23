@@ -2,13 +2,16 @@
   * Copyright 2017 aTool.org 
   */
 package com.example.henryzheng.qiushibaike.M.bean.image;
+
+import java.io.Serializable;
+
 /**
  * Auto-generated: 2017-01-18 15:28:26
  *
  * @author aTool.org (i@aTool.org)
  * @website http://www.atool.org/json2javabean.php
  */
-public class Items {
+public class Items implements Serializable{
 
     private String format;
     private String image;
@@ -17,7 +20,7 @@ public class Items {
     private String tag;
     private User user;
     private ImageSize image_size;
-    private int id;
+    private String id;
     private String low_loc;
     private HotComment hot_comment;
     private Votes votes;
@@ -77,10 +80,10 @@ public class Items {
          return image_size;
      }
 
-    public void setId(int id) {
+    public void setId(String id) {
          this.id = id;
      }
-     public int getId() {
+     public String getId() {
          return id;
      }
 

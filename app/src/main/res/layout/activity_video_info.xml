@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical"
-    >
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout0"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".C.info.activity.video.VideoInfoActivity">
 
     <include
         layout="@layout/layout_action_bar"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_marginLeft="@dimen/margin6"
         android:layout_marginRight="@dimen/margin6"
-        android:layout_marginTop="@dimen/margin6"
+        android:layout_marginTop="@dimen/margin6">
 
-        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,13 +30,13 @@
                 android:layout_width="@dimen/size0"
                 android:layout_height="@dimen/size0"
                 android:layout_margin="@dimen/margin0"
+                android:scaleType="fitCenter"
                 />
 
             <TextView
                 android:id="@+id/textView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin0"
                 android:text="名称"
                 style="@style/textStyle0"/>
         </LinearLayout>
@@ -44,66 +45,111 @@
             android:id="@+id/textView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:lineSpacingExtra="@dimen/margin1"
-            android:text="超霸气的餐厅炒菜师傅，炒个菜竟然炒出了要翘翻地球的气势 ！！"
-           style="@style/textStyle3" />
+            android:text="奥斯丁发哈是的哈四大hi哦啊是低哦按花是滴哦哈斯殴打后我爱上电视好滴哈似乎滴啊手动天生的 "
 
+            style="@style/textStyle3"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin1"
+            >
+
+            <LinearLayout
+                android:id="@+id/lin1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <SurfaceView
+                        android:id="@+id/surfaceView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBar"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin0"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin1"
             android:orientation="horizontal"
+
             >
 
             <TextView
-
+                style="@style/textStyle1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="好笑 "
-                style="@style/textStyle1"/>
+                android:text="好笑 "/>
 
             <TextView
                 android:id="@id/textView2"
+                style="@style/textStyle1"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="284"
-                style="@style/textStyle1"/>
+                />
 
             <TextView
+                style="@style/textStyle1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" ·评论"
-                style="@style/textStyle1"/>
+                />
 
             <TextView
-
                 android:id="@id/textView3"
+                style="@style/textStyle1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="33"
-                style="@style/textStyle1"/>
+                />
 
             <TextView
+                style="@style/textStyle1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" ·分享 "
-                style="@style/textStyle1"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1"
-                style="@style/textStyle1"/>
+                />
 
             <TextView
                 android:id="@id/textView4"
+                style="@style/textStyle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                />
+
+            <TextView
+                style="@style/textStyle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" ·再生 "
+                />
+
+            <TextView
+                android:id="@id/textView5"
+                style="@style/textStyle1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="22"
-                style="@style/textStyle1"/>
+                />
         </LinearLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/h3"
@@ -127,7 +173,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin1"
                     android:text="34"
-                    android:id="@id/textView5"
+                    android:id="@id/textView6"
                     style="@style/textStyle1"
                     />
             </LinearLayout>
@@ -141,4 +187,8 @@
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
+
+
+
+
 </LinearLayout>

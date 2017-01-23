@@ -39,14 +39,14 @@ public class VideoInfoAdapt extends BaseInfoAdapt {
         this.headItemData=headItemData;
     }
     @Override
-    public void convertByBottom(BaseViewHolder holder) {
-        super.convertByBottom(holder);
+    public void convertByFloor(BaseViewHolder holder) {
+        super.convertByFloor(holder);
         holder.setVisability(R.id.relativeLayout0, View.GONE);
     }
 
     @Override
     public int getHeadViewById() {
-        return R.layout.activity_video_info_head;
+        return R.layout.activity_video_info;
     }
     @Override
     public void convertByHead(BaseViewHolder holder) {
@@ -63,7 +63,18 @@ public class VideoInfoAdapt extends BaseInfoAdapt {
         float vHeight=lw*headItemData.getImage_size().getM().get(1);
         int lh= (int) (lw/vWidth*vHeight);
         holder.setLayoutParams(R.id.surfaceView,lw,lh);
+        if (headItemData.getUser() != null) {
+            if(headItemData.getUser().getLogin() != null)
+                holder.setText(R.id.textView0, headItemData.getUser().getLogin());
 
+            holder.setImageResource(R.id.imageView0, "http:" + headItemData.getUser().getThumb(), true);
+        }
+        holder.setText(R.id.textView1, headItemData.getContent());
+        holder.setText(R.id.textView2,headItemData.getVotes().getUp());
+        holder.setText(R.id.textView3, String.valueOf(headItemData.getComments_count()));
+        holder.setText(R.id.textView4,headItemData.getShare_count());
+        holder.setText(R.id.textView5,headItemData.getLoop());
+        holder.setText(R.id.textView6,headItemData.getComments_count());
 
     }
 

@@ -1,14 +1,26 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.example.henryzheng.qiushibaike.C.main.MainViewPageFragment">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context="com.example.henryzheng.qiushibaike.C.main.MainViewPageFragment">
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPage0"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
 
     <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h1"
+        android:background="@color/action_bar_bg">
 
-<android.support.v4.view.ViewPager
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/viewPage0"></android.support.v4.view.ViewPager>
+        <com.example.henryzheng.qiushibaike.V.identityView.NavigationView
+            android:id="@id/navigation_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
 
-</FrameLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>

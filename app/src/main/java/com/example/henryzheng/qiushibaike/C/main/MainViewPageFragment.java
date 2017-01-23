@@ -17,6 +17,7 @@ import com.example.henryzheng.qiushibaike.C.list.adapt.NewsListAdapt;
 import com.example.henryzheng.qiushibaike.C.list.adapt.TextListAdapt;
 import com.example.henryzheng.qiushibaike.C.list.adapt.VideoListAdapt;
 import com.example.henryzheng.qiushibaike.R;
+import com.example.henryzheng.qiushibaike.V.identityView.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,8 @@ import butterknife.BindView;
 public class MainViewPageFragment extends BaseFragment {
     @BindView(R.id.viewPage0)
     ViewPager viewPage0;
-
+@BindView(R.id.navigation_view)
+    NavigationView navigationView;
     List<Fragment> fragments=new ArrayList<>();
     @Override
     public int getContentViewId() {
@@ -40,12 +42,14 @@ public class MainViewPageFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return super.onCreateView(inflater, container, savedInstanceState);
+
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView();
+        navigationView.setMainPage(viewPage0);
     }
 
     private void initView() {

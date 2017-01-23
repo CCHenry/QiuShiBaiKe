@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.example.henryzheng.qiushibaike.MyApplication;
+
 import butterknife.ButterKnife;
 
 /**
@@ -21,11 +23,13 @@ public abstract class BaseActivity extends FragmentActivity {
         setContentView(getContentViewById());
         ButterKnife.bind(this);
         context=this;
+        MyApplication.addActivity(this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        MyApplication.removeActivity(this);
 
     }
     public static View getContentView(Activity ac){
