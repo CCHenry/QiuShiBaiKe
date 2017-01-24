@@ -61,8 +61,10 @@ public class BaseViewHolder extends RecyclerView.ViewHolder implements View.OnCl
                 }
             });
         } else {
+//            Glide.with(context).load(url).animate(R.anim.item_alpha_in).crossFade
+//                    (1000).into(iv);
             Glide.with(context).load(url).animate(R.anim.item_alpha_in).crossFade
-                    (1000).into(iv);
+                    (200).into(iv);
             iv.requestLayout();
         }
     }

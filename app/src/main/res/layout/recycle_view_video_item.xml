@@ -54,6 +54,7 @@
                 android:id="@+id/imageView1"
                 android:layout_width="match_parent"
                 android:layout_height="400dip"
+
                 android:layout_marginTop="@dimen/margin1"
                 />
 

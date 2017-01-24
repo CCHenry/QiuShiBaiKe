@@ -1,7 +1,5 @@
 package com.example.henryzheng.qiushibaike.C.list.adapt;
 
-import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -70,11 +68,11 @@ public abstract class BaseListAdapt<T> extends RecyclerView.Adapter<BaseViewHold
         if (getItemCount() > 0) {
 
             if (position > 0 && position < getItemCount() - 1) {
-                PropertyValuesHolder pvh = PropertyValuesHolder.ofFloat(View.SCALE_X, 0
-                        , 1);
-                PropertyValuesHolder pvw = PropertyValuesHolder.ofFloat(View.SCALE_Y, 0
-                        , 1);
-                ObjectAnimator.ofPropertyValuesHolder(holder.getConvertView(), pvh,pvw).setDuration(300).start();
+//                PropertyValuesHolder pvh = PropertyValuesHolder.ofFloat(View.SCALE_X, 0
+//                        , 1);
+//                PropertyValuesHolder pvw = PropertyValuesHolder.ofFloat(View.SCALE_Y, 0
+//                        , 1);
+//                ObjectAnimator.ofPropertyValuesHolder(holder.getConvertView(), pvh,pvw).setDuration(300).start();
 
 //                PropertyValuesHolder pvh = PropertyValuesHolder.ofFloat(View.TRANSLATION_X, -DensityUtils.getSceenWidth(context)
 //                        , 1);
