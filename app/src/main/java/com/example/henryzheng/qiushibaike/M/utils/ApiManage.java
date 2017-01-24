@@ -1,19 +1,21 @@
 package com.example.henryzheng.qiushibaike.M.utils;
 
-import com.example.henryzheng.qiushibaike.M.bean.infoComment.api.InfoCommentApi;
-import com.example.henryzheng.qiushibaike.M.bean.test.api.ZhuanXiangApi;
 import com.example.henryzheng.qiushibaike.M.bean.image.api.ImageApi;
+import com.example.henryzheng.qiushibaike.M.bean.infoComment.api.InfoCommentApi;
 import com.example.henryzheng.qiushibaike.M.bean.news.api.NewsApi;
+import com.example.henryzheng.qiushibaike.M.bean.test.api.ZhuanXiangApi;
 import com.example.henryzheng.qiushibaike.M.bean.text.api.TextApi;
 import com.example.henryzheng.qiushibaike.M.bean.video.api.VideoApi;
 import com.example.henryzheng.qiushibaike.MyApplication;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -27,22 +29,34 @@ public class ApiManage {
     private static final Interceptor REWRITE_CACHE_CONTROL_INTERCEPTOR = new Interceptor() {
         @Override
         public Response intercept(Chain chain) throws IOException {
-            Response originalResponse = chain.proceed(chain.request());
-            if (NetWorkStateUtil.isNetWorkAvailable(MyApplication.getContext())) {
-                int maxAge = 60; // 在线缓存在1分钟内可读取
+            Request request=chain.request();
+            //设置缓存
+            Response originalResponse = chain.proceed(request);
+//            if (NetWorkStateUtil.isNetWorkAvailable(MyApplication.getContext())) {
+                int maxAge = 30; // 在线缓存
                 return originalResponse.newBuilder()
                         .removeHeader("Pragma")
                         .removeHeader("Cache-Control")
                         .header("Cache-Control", "public, max-age=" + maxAge)
                         .build();
-            } else {
-                int maxStale = 60 * 60 * 24 * 28; // 离线时缓存保存4周
-                return originalResponse.newBuilder()
-                        .removeHeader("Pragma")
-                        .removeHeader("Cache-Control")
-                        .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
+
+        }
+    };
+    private static final Interceptor REWRITE_CACHE_CONTROL_INTERCEPTOR_OFFLINE = new Interceptor() {
+        @Override
+        public Response intercept(Chain chain) throws IOException {
+            int maxStale = 60 * 60 * 24 * 28;
+            Request request = chain.request();
+            //离线的时候为7天的缓存。
+
+            if (!NetWorkStateUtil.isNetWorkAvailable(MyApplication.getContext())) {
+                request = request.newBuilder()
+                        .header("Cache-Control", "public, only-if-cached, max-stale="+maxStale)
                         .build();
+                ToastUtil.showNomalText("连接不到网络");
             }
+            return chain.proceed(request);
+
         }
     };
     ZhuanXiangApi zhuanXiangApi;
@@ -55,9 +69,10 @@ public class ApiManage {
     private static int cacheSize = 10 * 1024 * 1024; // 10 MiB
     private static Cache cache = new Cache(httpCacheDirectory, cacheSize);
     private static OkHttpClient client = new OkHttpClient.Builder()
-            .addNetworkInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR)
-//            .addInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR)
             .addInterceptor(new LoggingInterceptor())
+            .addNetworkInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR)
+            .addInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR_OFFLINE)
+            .connectTimeout(60*1000, TimeUnit.MILLISECONDS)
             .cache(cache)
             .build();
 

@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.example.henryzheng.qiushibaike.C.list.adapt.BaseListAdapt;
 import com.example.henryzheng.qiushibaike.M.bean.infoComment.InfoCommentRootBean;
+import com.example.henryzheng.qiushibaike.M.bean.retrofitException.HttpResultFunc;
 import com.example.henryzheng.qiushibaike.M.utils.ApiManage;
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
 import com.example.henryzheng.qiushibaike.V.identityView.MyRecycleView;
@@ -89,6 +90,7 @@ public class BaseInfoHandlerPresenter {
             ApiManage.getInstence().getInfoCommentApiService().getLastDaily(id, page,
                     onceLoadCommentCount, 0)
                     .subscribeOn(Schedulers.io())
+                    .onErrorResumeNext(new HttpResultFunc<InfoCommentRootBean>())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Observer<InfoCommentRootBean>() {
                         @Override
@@ -105,6 +107,9 @@ public class BaseInfoHandlerPresenter {
 //                        handlerAndShowData(load_data_type, rootListBean);
                             if (rootListBean != null) {
                                 if (rootListBean.getCount() > 0) {
+                                    if (rootListBean.getCount()<30){
+                                        adapt.setIsEnd(true);
+                                    }
                                     CCLog.print(Thread.currentThread().getName());
                                     if (load_data_type == LOAD_MORE_TYPE) {
                                         loadNewData(rootListBean.getItems());
@@ -114,7 +119,7 @@ public class BaseInfoHandlerPresenter {
                             }
                         }
                     });
-        } else {
+        } else{
 //            adapt.notifyDataSetChanged();
             adapt.setIsEnd(true);
             adapt.notifyDataSetChanged();

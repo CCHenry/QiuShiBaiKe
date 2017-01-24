@@ -86,12 +86,9 @@ public class BaseListFragment extends BaseFragment implements
                 presenter.loadListData(presenter.LOAD_MORE_TYPE);
             }
         });
-        swipeRefreshLayout.post(new Runnable() {
-            @Override
-            public void run() {
+
                 swipeRefreshLayout.setRefreshing(true);
-            }
-        });
+
         presenter.loadListData(presenter.REFRESH_DATA_TYPE);
 
     }
@@ -141,7 +138,6 @@ public class BaseListFragment extends BaseFragment implements
             intent = new Intent(getActivity(), VideoInfoActivity.class);
             intent.putExtra("data", (Serializable) recycleAdapter.getData().get(position - 1));
             intent.putExtra("position", position - 1);
-
         } else if (recycleAdapter instanceof NewsListAdapt) {
             intent = new Intent(getActivity(), NewsInfoActivity.class);
             intent.putExtra("data", (Serializable) recycleAdapter.getData().get(position - 1));
@@ -155,7 +151,6 @@ public class BaseListFragment extends BaseFragment implements
             intent.putExtra("data", (Serializable) recycleAdapter.getData().get(position - 1));
             intent.putExtra("position", position - 1);
         }
-
         startActivity(intent);}
     }
 }
