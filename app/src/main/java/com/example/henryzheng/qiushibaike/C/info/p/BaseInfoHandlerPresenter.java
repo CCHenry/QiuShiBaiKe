@@ -120,9 +120,7 @@ public class BaseInfoHandlerPresenter {
                         }
                     });
         } else{
-//            adapt.notifyDataSetChanged();
             adapt.setIsEnd(true);
-            adapt.notifyDataSetChanged();
         }
     }
 
