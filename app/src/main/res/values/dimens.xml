@@ -27,5 +27,6 @@
     <dimen name="margin4">20dip</dimen>
 
     <dimen name="size1">12dip</dimen>
+    <dimen name="margin7">-7dp</dimen>
 
 </resources>

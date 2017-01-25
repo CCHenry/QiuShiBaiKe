@@ -12,8 +12,28 @@ import com.example.henryzheng.qiushibaike.M.utils.DensityUtils;
 public class RecycleItemBgByCardView extends CardView {
     public RecycleItemBgByCardView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setRadius(DensityUtils.dp2px(context,10));//设置图片圆角的半径大小
-        setCardElevation(DensityUtils.dp2px(context,10));//设置阴影部分大小
-        setContentPadding(DensityUtils.dp2px(context,10), DensityUtils.dp2px(context,10), DensityUtils.dp2px(context,10),DensityUtils.dp2px(context,10));//设置图片距离阴影大小
+        init(context);
     }
+
+    public RecycleItemBgByCardView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(context);
+
+    }
+
+    public RecycleItemBgByCardView(Context context) {
+        super(context);
+        init(context);
+
+    }
+
+    private void init(Context context) {
+        setRadius(DensityUtils.dp2px(context, 20));//设置图片圆角的半径大小
+        setCardElevation(DensityUtils.dp2px(context, 5));//设置阴影部分大小
+        setContentPadding(DensityUtils.dp2px(context, 13), DensityUtils.dp2px(context, 13),
+                DensityUtils.dp2px(context, 13), DensityUtils.dp2px(context, 13));//设置图片距离阴影大小
+
+        setUseCompatPadding(true);
+    }
+
 }

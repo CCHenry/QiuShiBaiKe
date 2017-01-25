@@ -10,11 +10,11 @@ package com.example.henryzheng.qiushibaike.M.bean.infoComment;
  */
 public class Items {
 
-    private String content;
+    private   String content;
     private int parent_id;
     private boolean liked;
     private String like_count;
-    private String at_infos;
+    private At_Infos at_infos;
     private String floor;
     private String created_at;
     private int id;
@@ -23,7 +23,7 @@ public class Items {
     public void setContent(String content) {
          this.content = content;
      }
-     public String getContent() {
+     public  String getContent() {
          return content;
      }
 
@@ -48,10 +48,10 @@ public class Items {
          return like_count;
      }
 
-    public void setAtInfos(String atInfos) {
+    public void setAtInfos(At_Infos atInfos) {
          this.at_infos = atInfos;
      }
-     public String getAtInfos() {
+     public At_Infos getAtInfos() {
          return at_infos;
      }
 
@@ -90,4 +90,6 @@ public class Items {
     public void setRefer(Refer refer) {
         this.refer = refer;
     }
+
+
 }

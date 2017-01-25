@@ -57,6 +57,7 @@ public class MainViewPageFragment extends BaseFragment implements View.OnTouchLi
         navigationView.setMainPage(viewPage0);
 //        viewPage0.setOnTouchListener(this);
         gestureDetector=new GestureDetector(new DefaultGestureDetector());
+//        viewPage0.setPageTransformer(true,new DepthPageTransformer());
     }
 
     private void initView() {

@@ -2,6 +2,11 @@ package com.example.henryzheng.qiushibaike.M.bean.retrofitException;
 
 import com.example.henryzheng.qiushibaike.M.utils.CCLog;
 import com.example.henryzheng.qiushibaike.M.utils.ToastUtil;
+import com.google.gson.JsonParseException;
+
+import org.json.JSONException;
+
+import java.text.ParseException;
 
 import retrofit2.adapter.rxjava.HttpException;
 
@@ -21,10 +26,10 @@ public class ExceptionEngine {
 
     public static ApiException handleException(Throwable e){
         ApiException ex = null;
-        if (e instanceof HttpException){             //HTTP错误
+        if (e instanceof HttpException) {             //HTTP错误
             final HttpException httpException = (HttpException) e;
             ex = new ApiException(e, httpException.code());
-            switch(httpException.code()){
+            switch (httpException.code()) {
                 case UNAUTHORIZED:
                 case FORBIDDEN:
                 case NOT_FOUND:
@@ -37,23 +42,25 @@ public class ExceptionEngine {
                     ex.setDisplayMessage("网络错误");  //均视为网络错误
                     break;
             }
-            CCLog.print("newWork find error"+ex.getCause().toString());
+            CCLog.print("newWork find error" + ex.getCause().toString());
             final ApiException finalEx = ex;
-            ToastUtil.showNomalText("网络异常:"+ httpException.code());
+            ToastUtil.showNomalText("网络异常:" + httpException.code());
 
-
+        }
 //        } else if (e instanceof ServerException){    //服务器返回的错误
 //            ServerException resultException = (ServerException) e;
 //            ex = new ApiException(resultException, resultException.getCode());
 //            ex.setDisplayMessage(resultException.getMsg());
 //            return ex;
-//        } else if (e instanceof JsonParseException
-//                || e instanceof JSONException
-//                || e instanceof ParseException){
-//            ex = new ApiException(e, ERROR.PARSE_ERROR);
-//            ex.setDisplayMessage("解析错误");            //均视为解析错误
-//            return ex;
-//        }else if(e instanceof ConnectException){
+//        }
+ else if (e instanceof JsonParseException
+                || e instanceof JSONException
+                || e instanceof ParseException){
+            ToastUtil.showNomalText("网络异常:" + e.getCause().toString());
+            ex.setDisplayMessage("解析错误");            //均视为解析错误
+            return ex;
+
+// else if(e instanceof ConnectException){
 //            ex = new ApiException(e, ERROR.NETWORD_ERROR);
 //            ex.setDisplayMessage("连接失败");  //均视为网络错误
 //            return ex;

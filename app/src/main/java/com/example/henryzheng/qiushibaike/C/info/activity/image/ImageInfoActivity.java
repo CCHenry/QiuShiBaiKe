@@ -7,7 +7,6 @@ import com.example.henryzheng.qiushibaike.C.info.adapt.ImageInfoAdapt;
 import com.example.henryzheng.qiushibaike.C.info.base.BaseInfoActivity;
 import com.example.henryzheng.qiushibaike.C.info.p.BaseInfoHandlerPresenter;
 import com.example.henryzheng.qiushibaike.M.bean.image.Items;
-import com.example.henryzheng.qiushibaike.M.utils.CCLog;
 import com.example.henryzheng.qiushibaike.R;
 import com.example.henryzheng.qiushibaike.V.identityView.MyRecycleView;
 
@@ -25,7 +24,6 @@ public class ImageInfoActivity extends BaseInfoActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        CCLog.print(Thread.currentThread().getName());
         handlerData();
         initComment();
     }
