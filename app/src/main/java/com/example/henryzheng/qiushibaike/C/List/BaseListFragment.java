@@ -87,12 +87,11 @@ public class BaseListFragment extends BaseFragment implements
             }
         });
 
-                swipeRefreshLayout.setRefreshing(true);
+        swipeRefreshLayout.setRefreshing(true);
 
         presenter.loadListData(presenter.REFRESH_DATA_TYPE);
 
     }
-
 
 
     @Override
@@ -115,8 +114,6 @@ public class BaseListFragment extends BaseFragment implements
     }
 
 
-
-
     @Override
     public void loadNewData(List datas) {
         swipeRefreshLayout.setRefreshing(false);
@@ -133,24 +130,28 @@ public class BaseListFragment extends BaseFragment implements
     @Override
     public void onItemClickListner(View v, int position) {
         Intent intent = null;
-        if (position>0){
-        if (recycleAdapter instanceof VideoListAdapt) {
-            intent = new Intent(getActivity(), VideoInfoActivity.class);
-            intent.putExtra("data", (Serializable) recycleAdapter.getData().get(position - 1));
-            intent.putExtra("position", position - 1);
-        } else if (recycleAdapter instanceof NewsListAdapt) {
-            intent = new Intent(getActivity(), NewsInfoActivity.class);
-            intent.putExtra("data", (Serializable) recycleAdapter.getData().get(position - 1));
-            intent.putExtra("position", position - 1);
-        }else if (recycleAdapter instanceof TextListAdapt){
-            intent = new Intent(getActivity(), TextInfoActivity.class);
-            intent.putExtra("data", (Serializable) recycleAdapter.getData().get(position - 1));
-            intent.putExtra("position", position - 1);
-        }else if (recycleAdapter instanceof ImageListAdapt){
-            intent = new Intent(getActivity(), ImageInfoActivity.class);
-            intent.putExtra("data", (Serializable) recycleAdapter.getData().get(position - 1));
-            intent.putExtra("position", position - 1);
+        if (position > 0) {
+            if (recycleAdapter instanceof VideoListAdapt) {
+                intent = new Intent(getActivity(), VideoInfoActivity.class);
+                intent.putExtra("data", (Serializable) recycleAdapter.getData().get(position - 1));
+                intent.putExtra("position", position - 1);
+            } else if (recycleAdapter instanceof NewsListAdapt) {
+                intent = new Intent(getActivity(), NewsInfoActivity.class);
+                intent.putExtra("data", (Serializable) recycleAdapter.getData().get(position - 1));
+                intent.putExtra("position", position - 1);
+            } else if (recycleAdapter instanceof TextListAdapt) {
+                intent = new Intent(getActivity(), TextInfoActivity.class);
+                intent.putExtra("data", (Serializable) recycleAdapter.getData().get(position - 1));
+                intent.putExtra("position", position - 1);
+            } else if (recycleAdapter instanceof ImageListAdapt) {
+                intent = new Intent(getActivity(), ImageInfoActivity.class);
+                intent.putExtra("data", (Serializable) recycleAdapter.getData().get(position - 1));
+                intent.putExtra("position", position - 1);
+            }
+
+                    startActivity(intent);
+
+
         }
-        startActivity(intent);}
     }
 }
