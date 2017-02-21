@@ -76,7 +76,7 @@ public class ApiManage {
             .cache(cache)
             .build();
 
-    static ApiManage apiManage;
+    volatile static   ApiManage apiManage;
     public static ApiManage getInstence() {
         if (apiManage == null) {
             synchronized (ApiManage.class) {
