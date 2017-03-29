@@ -24,7 +24,6 @@ public class TextListAdapt extends BaseListAdapt {
             if (data.getUser().getLogin() != null) {
                 holder.setText(R.id.textView0, data.getUser().getLogin());
                 holder.setImageResource(R.id.imageView0, "http:" + data.getUser().getThumb(), true);
-
             }
         holder.setText(R.id.textView1, data.getContent());
         holder.setText(R.id.textView2,data.getVotes().getUp());
